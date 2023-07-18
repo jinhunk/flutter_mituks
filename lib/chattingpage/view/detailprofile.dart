@@ -2,7 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mituks/bottomnavigation/root_tab.dart';
 import 'package:flutter_mituks/chattingpage/view/detailchatting.dart';
-
+import 'package:flutter_mituks/chattingpage/view/detailgift.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DetailProfilePage extends StatefulWidget {
   const DetailProfilePage({super.key});
@@ -17,9 +19,9 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
   int _current = 0;
 
   final List<String> imgList = [
-    'images/img.png',
-    'images/person/klraa.png',
-    'images/img.png',
+    'image/img.png',
+    'image/img.png',
+    'image/img.png',
   ];
 
   List<T> map<T>(List list, Function handler) {
@@ -41,190 +43,263 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: width / 1.0,
-              height: height / 2.5,
-              // decoration: BoxDecoration(
-              //   gradient: LinearGradient(
-              //     colors: [
-              //       const Color.fromARGB(255, 24, 123, 113),
-              //       Colors.black.withOpacity(0.8),
-              //     ],
-              //     begin: Alignment.center,
-              //     end: Alignment.bottomCenter,
-              //   ),
-              // ),
+              width: ScreenUtil().setWidth(
+                375,
+              ),
+              height: ScreenUtil().setHeight(
+                300,
+              ),
               child: Stack(
                 children: [
                   //이미지페이지 애니메이션
-
                   CarouselSlider.builder(
                     key: _sliderKey,
                     itemCount: imgList.length,
                     itemBuilder:
                         (BuildContext context, int index, int pageViewIndex) {
-                      return Container(
-                        child: Stack(
-                          children: [
-                            ClipRRect(
-                              // borderRadius: BorderRadius.circular(16.0),
-                              child: Image.asset(
-                                imgList[index],
-                                fit: BoxFit.fill,
-                                height: height / 2.5,
-                                width: MediaQuery.of(context).size.width / 1.0,
-                              ),
+                      return Stack(
+                        children: [
+                          Image.asset(
+                            imgList[index],
+                            fit: BoxFit.fill,
+                            width: ScreenUtil().setWidth(
+                              375,
                             ),
-                            if (index == 0)
-                              Positioned(
-                                top: 240,
-                                left: 130,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        const Text(
-                                          "김유라, ",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const Text(
-                                          "23세",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Image.asset(
-                                          "images/woman.png",
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    Row(
-                                      children: [
-                                        const Icon(
-                                          Icons.location_on_sharp,
+                            height: ScreenUtil().setHeight(
+                              300,
+                            ),
+                          ),
+
+                          if (index == 0)
+                            Positioned(
+                              top: ScreenUtil().setHeight(
+                                200,
+                              ),
+                              left: ScreenUtil().setWidth(
+                                110,
+                              ),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    // crossAxisAlignment:
+                                    //     CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "김영아, ",
+                                        style: TextStyle(
                                           color: Colors.white,
-                                          size: 15,
+                                          fontSize: ScreenUtil().setSp(
+                                            24,
+                                          ),
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        const Text(
+                                      ),
+                                      const Text(
+                                        "23세",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          6,
+                                        ),
+                                      ),
+                                      SvgPicture.asset(
+                                        "image/gender/femalebig.svg",
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: ScreenUtil().setWidth(
+                                      6,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      left: ScreenUtil().setWidth(
+                                        10,
+                                      ),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                          "image/mapgray.svg",
+                                        ),
+                                        SizedBox(
+                                          width: ScreenUtil().setWidth(
+                                            2,
+                                          ),
+                                        ),
+                                        Text(
                                           '13km',
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            fontSize: ScreenUtil().setSp(
+                                              12,
+                                            ),
+                                            color: const Color.fromARGB(
+                                              255,
+                                              229,
+                                              229,
+                                              229,
+                                            ),
                                           ),
                                         ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Image.asset(
-                                          "images/globe-light.png",
-                                        ),
-                                        const SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        const Text(
-                                          '영어',
-                                          style: TextStyle(
-                                            color: Colors.white,
+                                        SizedBox(
+                                          width: ScreenUtil().setWidth(
+                                            6,
                                           ),
                                         ),
-                                        const SizedBox(
-                                          width: 10,
+                                        SvgPicture.asset(
+                                          "image/globe-light.svg",
+                                          color: Colors.white,
                                         ),
-                                        Image.asset(
-                                          "images/coinsss.png",
+                                        SizedBox(
+                                          width: ScreenUtil().setWidth(
+                                            2,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            top: ScreenUtil().setHeight(
+                                              2,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            '영어',
+                                            style: TextStyle(
+                                              fontSize: ScreenUtil().setSp(
+                                                12,
+                                              ),
+                                              color: const Color.fromARGB(
+                                                255,
+                                                229,
+                                                229,
+                                                229,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: ScreenUtil().setWidth(
+                                            6,
+                                          ),
+                                        ),
+                                        SvgPicture.asset(
+                                          "image/smallcoin.svg",
+                                        ),
+                                        SizedBox(
+                                          width: ScreenUtil().setWidth(
+                                            2,
+                                          ),
                                         ),
                                         const Text(
                                           '200',
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            color: Color.fromARGB(
+                                              255,
+                                              229,
+                                              229,
+                                              229,
+                                            ),
                                           ),
                                         ),
                                       ],
                                     ),
-                                  ],
-                                ),
-                              ),
-                            //뒤로가기아이콘
-                            Positioned(
-                              top: 70,
-                              left: 20,
-                              child: Container(
-                                width: width / 9.5,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(
-                                    0.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            const RootTab(),
-                                      ),
-                                    );
-                                  },
-                                  child: const Icon(
-                                    Icons.arrow_back_ios_rounded,
-                                    color: Colors.white,
-                                  ),
-                                ),
+                                ],
                               ),
                             ),
-                            //프로필설정컨테이너
-                            Positioned(
-                              top: 70,
-                              left: 270,
+                          //뒤로가기아이콘
+                          Positioned(
+                            top: ScreenUtil().setHeight(
+                              55,
+                            ),
+                            left: ScreenUtil().setWidth(
+                              14,
+                            ),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: SvgPicture.asset(
+                                "image/profileback.svg",
+                              ),
+                            ),
+                          ),
+                          //프로필설정컨테이너
+                          Positioned(
+                            top: ScreenUtil().setHeight(
+                              60,
+                            ),
+                            left: ScreenUtil().setWidth(
+                              259,
+                            ),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        const DetailGiftPage(),
+                                  ),
+                                );
+                              },
                               child: Container(
-                                width: width / 3.5,
-                                height: 40,
+                                width: ScreenUtil().setWidth(
+                                  100,
+                                ),
+                                height: ScreenUtil().setHeight(
+                                  34,
+                                ),
                                 decoration: BoxDecoration(
                                   color: Colors.grey.withOpacity(
                                     0.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(100),
                                 ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.asset(
-                                      "images/giftwitht.png",
+                                    Center(
+                                      child: SvgPicture.asset(
+                                        "image/gift.svg",
+                                      ),
                                     ),
-                                    const SizedBox(
-                                      width: 10,
+                                    SizedBox(
+                                      width: ScreenUtil().setWidth(
+                                        4,
+                                      ),
                                     ),
-                                    const Text(
-                                      '선물 보내기',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        top: ScreenUtil().setHeight(
+                                          10,
+                                        ),
+                                      ),
+                                      child: const Text(
+                                        '선물 보내기',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ),
                                   ],
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       );
                     },
                     options: CarouselOptions(
                       viewportFraction: 1.0, // 화면비율
                       enableInfiniteScroll: true,
                       enlargeCenterPage: false,
-                      autoPlay: true,
+                      autoPlay: false,
                       scrollDirection: Axis.horizontal,
                       reverse: false,
                       height: MediaQuery.of(context).size.height / 2.50,
@@ -236,18 +311,29 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
                     ),
                   ),
                   Positioned(
-                    top: 300,
-                    left: 190,
+                    top: ScreenUtil().setHeight(
+                      265,
+                    ),
+                    left: ScreenUtil().setWidth(
+                      175,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: map<Widget>(
                         imgList,
                         (index, url) {
                           return Container(
-                            width: 7.0,
-                            height: 7.0,
-                            margin: const EdgeInsets.symmetric(
-                                vertical: 10.0, horizontal: 2.0),
+                            width: ScreenUtil().setWidth(
+                              6,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              6,
+                            ),
+                            margin: EdgeInsets.symmetric(
+                              horizontal: ScreenUtil().setWidth(
+                                2,
+                              ),
+                            ),
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: _current == index
@@ -264,112 +350,234 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
             ),
             //첫번쨰 컨테이너박스
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.only(
+                left: ScreenUtil().setWidth(
+                  8,
+                ),
+                top: ScreenUtil().setHeight(
+                  12,
+                ),
+              ),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(
+                    12,
+                  ),
                 ),
-                width: width / 1.02,
-                height: 180,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 15.0),
-                      child: Row(
+                width: ScreenUtil().setWidth(
+                  359,
+                ),
+                height: ScreenUtil().setHeight(
+                  176,
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: ScreenUtil().setHeight(
+                      12,
+                    ),
+                    left: ScreenUtil().setWidth(
+                      20,
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
                         children: [
-                          Image.asset("images/message-bubble.png"),
+                          SvgPicture.asset(
+                            "image/messageteal.svg",
+                          ),
                           const SizedBox(
                             width: 5,
                           ),
-                          const Text(
+                          Text(
                             '내 소개',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                              fontSize: ScreenUtil().setSp(
+                                16,
+                              ),
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(
-                        left: 15.0,
+                      SizedBox(
+                        height: ScreenUtil().setHeight(
+                          8,
+                        ),
                       ),
-                      child: Text(
+                      Text(
                         '어제 강남으로 옮겼어요.',
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15,
+                          color: const Color.fromARGB(
+                            255,
+                            64,
+                            64,
+                            64,
+                          ),
+                          fontWeight: FontWeight.w700,
+                          fontSize: ScreenUtil().setSp(
+                            14,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 2,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 15.0),
-                      child: Text(
+                      const SizedBox(
+                        height: 2,
+                      ),
+                      Text(
                         '친구 사귀려고 앱 다운했어요! 저랑 채팅해요!',
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          fontSize: ScreenUtil().setSp(
+                            14,
+                          ),
+                          color: const Color.fromARGB(
+                            255,
+                            64,
+                            64,
+                            64,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
-                      child: Container(
+                      SizedBox(
+                        height: ScreenUtil().setHeight(
+                          14,
+                        ),
+                      ),
+                      Container(
+                        height: ScreenUtil().setHeight(
+                          60,
+                        ),
+                        width: ScreenUtil().setHeight(
+                          335,
+                        ),
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 243, 240, 240),
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
                           borderRadius: BorderRadius.circular(
-                            10,
+                            12,
                           ),
                         ),
-                        width: width / 1.18,
-                        height: 55,
-                        child: Center(
-                          child: Text(
-                            '음성녹음',
-                          ),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: ScreenUtil().setHeight(
+                                10,
+                              ),
+                              left: ScreenUtil().setWidth(
+                                12,
+                              ),
+                              child: SvgPicture.asset(
+                                "image/iconbuttonsmall.svg",
+                              ),
+                            ),
+                            SizedBox(
+                              width: ScreenUtil().setWidth(
+                                10,
+                              ),
+                            ),
+                            Positioned(
+                              top: ScreenUtil().setHeight(
+                                14,
+                              ),
+                              left: ScreenUtil().setWidth(
+                                62,
+                              ),
+                              child: SvgPicture.asset(
+                                "image/radio.svg",
+                              ),
+                            ),
+                            Positioned(
+                              left: 256,
+                              top: 22,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    '0:00 ',
+                                    style: TextStyle(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        23,
+                                        23,
+                                        23,
+                                      ),
+                                      fontSize: ScreenUtil().setSp(
+                                        12,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    '/ 0:10',
+                                    style: TextStyle(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        64,
+                                        64,
+                                        64,
+                                      ),
+                                      fontSize: ScreenUtil().setSp(
+                                        12,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
+            SizedBox(
+              height: ScreenUtil().setHeight(
+                8,
+              ),
+            ),
             //두번쨰 컨테이너박스
-
             Center(
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(
+                    12,
+                  ),
                 ),
-                width: width / 1.08,
-                height: 200,
+                width: ScreenUtil().setWidth(
+                  359,
+                ),
+                height: ScreenUtil().setHeight(
+                  190,
+                ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: EdgeInsets.only(
+                        top: ScreenUtil().setHeight(
+                          19,
+                        ),
+                        left: ScreenUtil().setWidth(
+                          20,
+                        ),
+                      ),
                       child: Row(
                         children: [
-                          Image.asset(
-                            "images/smile.png",
+                          SvgPicture.asset(
+                            "image/smile.svg",
                           ),
-                          const SizedBox(
-                            width: 5,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              4,
+                            ),
                           ),
                           const Text(
                             '저는 이런 사람이에요',
@@ -381,111 +589,192 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        12,
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(
+                          20,
+                        ),
+                      ),
                       child: Row(
                         children: [
                           PersonContainer(
-                            title: '사진찍기',
-                            width: width / 4.5,
-                            height: 35,
+                            image: "image/Interest/camara.png",
+                            title: '',
+                            width: ScreenUtil().setWidth(
+                              94,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
-                          const SizedBox(
-                            width: 10.0,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
                           ),
                           PersonContainer(
-                            title: '힌국어',
-                            width: width / 4.5,
-                            height: 35,
+                            image: "image/language/korea.png",
+                            title: '',
+                            width: ScreenUtil().setWidth(
+                              82,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
-                          const SizedBox(
-                            width: 10.0,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
                           ),
                           PersonContainer(
-                            title: '영화감상',
-                            width: width / 4.5,
-                            height: 35,
+                            image: "image/Interest/momo.png",
+                            title: '',
+                            width: ScreenUtil().setWidth(
+                              94,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        8,
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(
+                          20,
+                        ),
+                      ),
                       child: Row(
                         children: [
                           PersonContainer(
                             title: '성격',
-                            width: width / 6.5,
-                            height: 35,
+                            width: ScreenUtil().setWidth(
+                              53,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          PersonContainer(
-                            title: '성격',
-                            width: width / 6.5,
-                            height: 35,
-                          ),
-                          const SizedBox(
-                            width: 10.0,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
                           ),
                           PersonContainer(
                             title: '성격',
-                            width: width / 6.5,
-                            height: 35,
+                            width: ScreenUtil().setWidth(
+                              53,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
-                          const SizedBox(
-                            width: 10.0,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
                           ),
                           PersonContainer(
                             title: '성격',
-                            width: width / 6.5,
-                            height: 35,
+                            width: ScreenUtil().setWidth(
+                              53,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
+                          ),
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
+                          ),
+                          PersonContainer(
+                            title: '성격',
+                            width: ScreenUtil().setWidth(
+                              53,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        8,
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(
+                          20,
+                        ),
+                      ),
                       child: Row(
                         children: [
                           PersonContainer(
                             title: '성격',
-                            width: width / 6.5,
-                            height: 35,
+                            width: ScreenUtil().setWidth(
+                              53,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          PersonContainer(
-                            title: '성격',
-                            width: width / 6.5,
-                            height: 35,
-                          ),
-                          const SizedBox(
-                            width: 10.0,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
                           ),
                           PersonContainer(
                             title: '성격',
-                            width: width / 6.5,
-                            height: 35,
+                            width: ScreenUtil().setWidth(
+                              53,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
-                          const SizedBox(
-                            width: 10.0,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
                           ),
                           PersonContainer(
                             title: '성격',
-                            width: width / 6.5,
-                            height: 35,
+                            width: ScreenUtil().setWidth(
+                              53,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
+                          ),
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
+                          ),
+                          PersonContainer(
+                            title: '성격',
+                            width: ScreenUtil().setWidth(
+                              53,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
                         ],
                       ),
@@ -495,57 +784,89 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
               ),
             ),
 
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: ScreenUtil().setHeight(
+                8,
+              ),
             ),
             Center(
               child: Container(
-                width: width / 1.08,
-                height: 100,
+                width: ScreenUtil().setWidth(
+                  359,
+                ),
+                height: ScreenUtil().setHeight(
+                  96,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 15.0),
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(
+                          20,
+                        ),
+                      ),
                       child: Row(
                         children: [
-                          Image.asset("images/heart.png"),
+                          SvgPicture.asset(
+                            "image/love.svg",
+                          ),
                           SizedBox(
-                            width: 5,
+                            width: ScreenUtil().setWidth(
+                              4,
+                            ),
                           ),
                           Text(
                             '이런 사람을 찾고 있어요',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                              fontSize: ScreenUtil().setSp(
+                                16,
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        12,
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(
+                          20,
+                        ),
+                      ),
                       child: Row(
                         children: [
                           PersonContainer(
                             title: '이상형',
-                            width: width / 5.5,
-                            height: 35,
+                            width: ScreenUtil().setWidth(
+                              65,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              8,
+                            ),
                           ),
                           PersonContainer(
                             title: '이상형',
-                            width: width / 5.5,
-                            height: 35,
+                            width: ScreenUtil().setWidth(
+                              65,
+                            ),
+                            height: ScreenUtil().setHeight(
+                              36,
+                            ),
                           ),
                         ],
                       ),
@@ -554,19 +875,25 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 40,
+            SizedBox(
+              height: ScreenUtil().setHeight(
+                38,
+              ),
             ),
             Container(
               color: Colors.white,
-              width: width / 1.0,
-              height: 100,
+              width: ScreenUtil().setWidth(
+                375,
+              ),
+              height: ScreenUtil().setHeight(
+                106,
+              ),
               child: Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement<void, void>(
+                    Navigator.push(
                       context,
-                      MaterialPageRoute<void>(
+                      MaterialPageRoute(
                         builder: (BuildContext context) => DatailChattingPage(),
                       ),
                     );
@@ -579,24 +906,32 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
                         201,
                         195,
                       ),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(
+                        16,
+                      ),
                     ),
-                    width: width / 1.08,
-                    height: 70,
-                    child: const Center(
+                    width: ScreenUtil().setWidth(
+                      335,
+                    ),
+                    height: ScreenUtil().setHeight(
+                      56,
+                    ),
+                    child: Center(
                       child: Text(
                         '채팅하기',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: ScreenUtil().setSp(
+                            16,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -607,14 +942,14 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
 //컨테이너 박스 ( )
 class PersonContainer extends StatelessWidget {
   final String title;
-  final IconData? icon;
+  final String? image;
   final double width;
   final double height;
 
   const PersonContainer({
     super.key,
     required this.title,
-    this.icon,
+    this.image,
     required this.width,
     required this.height,
   });
@@ -629,12 +964,26 @@ class PersonContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-          ),
+          image != null
+              ? Image.asset(
+                  image!,
+                )
+              : Text(''),
           Text(
             title,
+            style: TextStyle(
+                fontSize: ScreenUtil().setSp(
+                  14,
+                ),
+                color: const Color.fromARGB(
+                  255,
+                  23,
+                  23,
+                  23,
+                ),
+                fontWeight: FontWeight.w700),
           ),
         ],
       ),

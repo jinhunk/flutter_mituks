@@ -81,6 +81,8 @@ flutter:
     - image/language/
     - image/Interest/
     - image/person/
+    - image/level/
+    - image/gender/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

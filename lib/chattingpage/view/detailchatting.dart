@@ -3,9 +3,13 @@ import 'dart:ui';
 import 'package:bubble/bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_mituks/chattingpage/view/confirmation.dart';
 import 'package:flutter_mituks/chattingpage/view/detailgift.dart';
 import 'package:flutter_mituks/chattingpage/view/detailprofile.dart';
+import 'package:flutter_mituks/profile/manprofile/coinpage.dart';
 import 'package:flutter_mituks/texttest.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DatailChattingPage extends StatefulWidget {
   const DatailChattingPage({
@@ -65,22 +69,30 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: const Icon(
-                Icons.arrow_back_ios_rounded,
-                color: Colors.grey,
+              child: SvgPicture.asset(
+                "image/Ic_toucharea.svg",
               ),
             ),
           ),
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(20.0),
             child: Container(
-              color: Colors.grey,
-              width: width / 1.0,
-              height: 1,
+              color: const Color.fromARGB(
+                255,
+                229,
+                229,
+                229,
+              ),
+              width: ScreenUtil().setWidth(
+                375,
+              ),
+              height: ScreenUtil().setHeight(
+                1,
+              ),
             ),
           ),
           title: const AppbarCard(
-            image: "images/kim.png",
+            image: "image/profileperson.png",
             title: "김영아, 23세",
             language: '영어',
             region: '서울시 서초구',
@@ -92,58 +104,92 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 220, top: 30),
-                    child: Bubble(
-                      nip: BubbleNip.rightBottom,
-                      color: const Color.fromARGB(
-                        255,
-                        24,
-                        187,
-                        171,
-                      ),
-                      child: const Text(
-                        '안녕하세여.반갑습니다!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(
-                          125,
-                        ),
-                        child: Container(
-                          width: 30,
-                          height: 30,
-                          child: Image.asset(
-                            width: 50,
-                            height: 50,
-                            "images/kim.png",
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: ScreenUtil().setHeight(
+                            24,
+                          ),
+                          right: ScreenUtil().setWidth(
+                            20,
                           ),
                         ),
-                      ),
-                      Bubble(
-                        nip: BubbleNip.leftBottom,
-                        color: const Color.fromARGB(255, 228, 228, 228),
-                        child: const Text(
-                          '안녕하세여 :)',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            color: Colors.black,
+                        child: Container(
+                          // width: ScreenUtil().setWidth(
+                          //   152,
+                          // ),
+                          height: ScreenUtil().setHeight(
+                            36,
+                          ),
+                          child: Bubble(
+                            nip: BubbleNip.rightBottom,
+                            color: const Color.fromARGB(
+                              255,
+                              3,
+                              181,
+                              176,
+                            ),
+                            child: Center(
+                              child: Text(
+                                '안녕하세여.반갑습니다!',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: ScreenUtil().setSp(
+                                    14,
+                                  ),
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil().setHeight(
+                      22,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: ScreenUtil().setWidth(
+                        20,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "image/person/smaillperson.png",
+                        ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        Container(
+                          height: ScreenUtil().setHeight(
+                            36,
+                          ),
+                          child: Center(
+                            child: Bubble(
+                              nip: BubbleNip.leftBottom,
+                              color: const Color.fromARGB(255, 228, 228, 228),
+                              child: const Text(
+                                '안녕하세여 :)',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -152,10 +198,12 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
               children: [
                 Container(
                   color: Colors.white,
-                  height: addbutton ? height / 2.2 : 0.0,
+                  height: addbutton ? height / 2.1 : 0.0,
                   width: width / 1.0,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 80.0),
+                    padding: EdgeInsets.only(
+                      top: ScreenUtil().setHeight(70),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.only(
                         left: 20.0,
@@ -168,15 +216,25 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                             children: [
                               GestureDetector(
                                 onTap: () {
+                                  setState(() {
+                                    textfiled = true;
+                                    print(textfiled);
+                                  });
                                   showModalBottomSheet(
-                                    // isScrollControlled: true,
+                                    isScrollControlled: true,
                                     context: context,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20.0),
+                                      borderRadius: BorderRadius.circular(
+                                        20,
+                                      ),
                                     ),
                                     builder: (context) {
                                       return Container(
-                                        height: 250,
+                                        height: textfiled
+                                            ? ScreenUtil().setHeight(254)
+                                            : ScreenUtil().setHeight(
+                                                540,
+                                              ),
                                         child: Stack(
                                           children: [
                                             BackdropFilter(
@@ -185,84 +243,133 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                                 sigmaY: 10,
                                               ),
                                               child: Container(
-                                                color:
-                                                    Colors.black.withOpacity(0),
+                                                color: Colors.white,
                                               ),
                                             ),
                                             Padding(
-                                              padding:
-                                                  const EdgeInsets.all(20.0),
+                                              padding: EdgeInsets.only(
+                                                top: ScreenUtil().setHeight(
+                                                  20,
+                                                ),
+                                                left: ScreenUtil().setWidth(
+                                                  20,
+                                                ),
+                                              ),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  const Text(
+                                                  Text(
                                                     '다이아몬드 몇개를 보내시겠습니까?',
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontWeight:
                                                           FontWeight.bold,
-                                                      fontSize: 18.0,
+                                                      fontSize:
+                                                          ScreenUtil().setSp(
+                                                        20,
+                                                      ),
                                                     ),
                                                   ),
-                                                  const SizedBox(
-                                                    height: 10.0,
+                                                  SizedBox(
+                                                    height:
+                                                        ScreenUtil().setHeight(
+                                                      12,
+                                                    ),
                                                   ),
                                                   Container(
-                                                    width: width / 1.1,
-                                                    height: 50.0,
+                                                    width:
+                                                        ScreenUtil().setWidth(
+                                                      335,
+                                                    ),
+                                                    height:
+                                                        ScreenUtil().setHeight(
+                                                      48,
+                                                    ),
                                                     decoration: BoxDecoration(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5.0),
+                                                              8.0),
                                                       color:
                                                           const Color.fromARGB(
-                                                              255,
-                                                              230,
-                                                              226,
-                                                              226),
+                                                        255,
+                                                        250,
+                                                        250,
+                                                        250,
+                                                      ),
+                                                      border: Border.all(
+                                                        color: const Color
+                                                            .fromARGB(
+                                                          255,
+                                                          229,
+                                                          229,
+                                                          229,
+                                                        ),
+                                                      ),
                                                     ),
                                                     child: Center(
                                                       //상대유저 다이아값
                                                       child: TextFormField(
+                                                        onTap: () {
+                                                          setState(() {
+                                                            textfiled = false;
+                                                          });
+                                                        },
                                                         controller:
                                                             _textEditingController,
                                                         onChanged: (value) {
                                                           userddiamondint =
                                                               value;
                                                         },
+                                                        decoration:
+                                                            const InputDecoration(
+                                                          border:
+                                                              InputBorder.none,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                  const SizedBox(
-                                                    height: 5.0,
-                                                  ),
-                                                  //내 다이아 보유개수
-                                                  const Center(
-                                                    child: Text(
-                                                      '다이아몬드 보유 갯수: 200개',
+                                                  SizedBox(
+                                                    height:
+                                                        ScreenUtil().setHeight(
+                                                      8,
                                                     ),
                                                   ),
-                                                  const SizedBox(
-                                                    height: 20.0,
+                                                  //내 다이아 보유개수
+                                                  Center(
+                                                    child: Text(
+                                                      '다이아몬드 보유 갯수: 200개',
+                                                      style: TextStyle(
+                                                        fontSize:
+                                                            ScreenUtil().setSp(
+                                                          14,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height:
+                                                        ScreenUtil().setHeight(
+                                                      28,
+                                                    ),
                                                   ),
                                                   Row(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
                                                     children: [
                                                       Container(
-                                                        width: width / 2.3,
-                                                        height: 60,
+                                                        width: ScreenUtil()
+                                                            .setWidth(
+                                                          164,
+                                                        ),
+                                                        height: ScreenUtil()
+                                                            .setHeight(
+                                                          56,
+                                                        ),
                                                         decoration:
                                                             BoxDecoration(
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                            10,
+                                                            16,
                                                           ),
                                                           color: const Color
                                                               .fromARGB(
@@ -272,7 +379,7 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                                             245,
                                                           ),
                                                         ),
-                                                        child: const Center(
+                                                        child: Center(
                                                           child: Text(
                                                             '취소',
                                                             style: TextStyle(
@@ -281,24 +388,38 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
+                                                              fontSize:
+                                                                  ScreenUtil()
+                                                                      .setSp(
+                                                                14,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                      const SizedBox(
-                                                        width: 15,
+                                                      SizedBox(
+                                                        width: ScreenUtil()
+                                                            .setWidth(
+                                                          7,
+                                                        ),
                                                       ),
                                                       Opacity(
                                                         opacity: 0.5,
                                                         child: Container(
-                                                          width: width / 2.4,
-                                                          height: 60,
+                                                          width: ScreenUtil()
+                                                              .setWidth(
+                                                            164,
+                                                          ),
+                                                          height: ScreenUtil()
+                                                              .setHeight(
+                                                            56,
+                                                          ),
                                                           decoration:
                                                               BoxDecoration(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                              10,
+                                                              16,
                                                             ),
                                                             color: userddiamondint
                                                                         .length >
@@ -311,16 +432,16 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                                                     195,
                                                                   )
                                                                 : const Color
-                                                                            .fromARGB(
-                                                                        255,
-                                                                        85,
-                                                                        227,
-                                                                        213)
-                                                                    .withOpacity(
+                                                                    .fromARGB(
+                                                                    255,
+                                                                    177,
+                                                                    238,
+                                                                    236,
+                                                                  ).withOpacity(
                                                                     0.5,
                                                                   ),
                                                           ),
-                                                          child: const Center(
+                                                          child: Center(
                                                             child: Text(
                                                               '확인',
                                                               style: TextStyle(
@@ -329,6 +450,11 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
+                                                                fontSize:
+                                                                    ScreenUtil()
+                                                                        .setSp(
+                                                                  14,
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
@@ -345,38 +471,36 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                     },
                                   );
                                 },
+
                                 //다이아 보내기
 
-                                child: CircleAvatar(
-                                  backgroundColor: const Color.fromARGB(
-                                    255,
-                                    243,
-                                    252,
-                                    252,
-                                  ),
-                                  radius: 40,
-                                  child: Image.asset(
-                                    "images/mdi_bichand-extended.png",
-                                  ),
+                                child: SvgPicture.asset(
+                                  "image/chattingdiamond.svg",
                                 ),
                               ),
-                              const SizedBox(
-                                width: 20.0,
-                              ),
-                              CircleAvatar(
-                                radius: 40,
-                                backgroundColor: const Color.fromARGB(
-                                  255,
-                                  243,
-                                  252,
-                                  252,
-                                ),
-                                child: Image.asset(
-                                  "images/bigcoin.png",
+                              SizedBox(
+                                width: ScreenUtil().setWidth(
+                                  21,
                                 ),
                               ),
-                              const SizedBox(
-                                width: 20.0,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const CoinConfirmation(),
+                                    ),
+                                  );
+                                },
+                                child: SvgPicture.asset(
+                                  "image/chattingbigcoin.svg",
+                                ),
+                              ),
+                              SizedBox(
+                                width: ScreenUtil().setWidth(
+                                  21,
+                                ),
                               ),
                               GestureDetector(
                                 onTap: () {
@@ -388,41 +512,56 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                     ),
                                   );
                                 },
-                                child: CircleAvatar(
-                                  backgroundColor: const Color.fromARGB(
-                                    255,
-                                    243,
-                                    252,
-                                    252,
-                                  ),
-                                  radius: 40,
-                                  child: Image.asset(
-                                    "images/gift.png",
-                                  ),
+                                child: SvgPicture.asset(
+                                  "image/chattinggift.svg",
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 10.0,
+                          SizedBox(
+                            height: ScreenUtil().setHeight(
+                              8,
+                            ),
                           ),
-                          const Row(
+                          Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 '다이아 보내기',
+                                style: TextStyle(
+                                  fontSize: ScreenUtil().setSp(
+                                    12,
+                                  ),
+                                ),
                               ),
                               SizedBox(
-                                width: 25.0,
+                                width: ScreenUtil().setWidth(20),
                               ),
-                              Text(
-                                '코인 확인하기',
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  right: ScreenUtil().setWidth(
+                                    3,
+                                  ),
+                                ),
+                                child: Text(
+                                  '코인 확인하기',
+                                  style: TextStyle(
+                                    fontSize: ScreenUtil().setSp(
+                                      12,
+                                    ),
+                                  ),
+                                ),
                               ),
                               SizedBox(
-                                width: 35.0,
+                                width: ScreenUtil().setWidth(20),
                               ),
                               Text(
                                 '선물하기',
+                                style: TextStyle(
+                                  fontSize: ScreenUtil().setSp(
+                                    12,
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -432,11 +571,13 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                   ),
                 ),
                 Container(
-                  height: 66,
+                  height: ScreenUtil().setHeight(
+                    66,
+                  ),
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.7),
+                        color: Colors.grey.withOpacity(0.2),
                         spreadRadius: 0,
                         blurRadius: 10.0,
                         offset: const Offset(
@@ -448,14 +589,26 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                     color: Colors.white,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 0.0, top: 10),
+                    padding: EdgeInsets.only(
+                      left: ScreenUtil().setWidth(
+                        16,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        10,
+                      ),
+                    ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 5.0),
+                          padding: const EdgeInsets.only(top: 0.0),
                           child: SizedBox(
-                            height: 30,
+                            height: ScreenUtil().setHeight(
+                              32,
+                            ),
+                            width: ScreenUtil().setWidth(
+                              32,
+                            ),
                             child: FloatingActionButton(
                               backgroundColor:
                                   const Color.fromARGB(255, 235, 235, 235),
@@ -475,59 +628,80 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            10,
+                          ),
+                        ),
                         Container(
-                          width: width / 1.4,
-                          height: 40,
-                          child: Expanded(
-                            child: TextField(
-                              controller: _textEditingController,
-                              focusNode: _focusNode,
-                              textInputAction: TextInputAction.done,
-                              onTap: () {
-                                setState(() {
-                                  //키보드자판이 올라오고나서
-                                  //+버튼이 true일때 키보드자판내리기
-                                  // addbutton = false;
+                          width: ScreenUtil().setWidth(
+                            249,
+                          ),
+                          height: ScreenUtil().setHeight(
+                            42,
+                          ),
+                          child: TextField(
+                            controller: _textEditingController,
+                            focusNode: _focusNode,
+                            textInputAction: TextInputAction.done,
+                            onTap: () {
+                              setState(() {
+                                //키보드자판이 올라오고나서
+                                //+버튼이 true일때 키보드자판내리기
+                                // addbutton = false;
 
-                                  // if (addbutton = true) {
-                                  //   null;
-                                  // }
-                                });
+                                // if (addbutton = true) {
+                                //   null;
+                                // }
+                              });
 
-                                print(
-                                  addbutton,
-                                );
-                              },
-                              decoration: const InputDecoration(
-                                hintText: "메세지를 입력해주세요...",
-                                hintStyle: TextStyle(fontSize: 14.0),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(20),
-                                  ),
-                                  borderSide: BorderSide(
-                                    color: Colors.grey,
-                                  ),
+                              print(
+                                addbutton,
+                              );
+                            },
+                            decoration: InputDecoration(
+                              hintText: "메세지를 작성해주세요...",
+                              hintStyle: TextStyle(
+                                fontSize: ScreenUtil().setSp(
+                                  13,
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(20),
-                                  ),
-                                  borderSide: BorderSide(
-                                    color: Colors.grey,
-                                  ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(100),
+                                ),
+                                borderSide: BorderSide(
+                                  color:
+                                      const Color.fromARGB(255, 229, 229, 229),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(100),
+                                ),
+                                borderSide: BorderSide(
+                                  color:
+                                      const Color.fromARGB(255, 229, 229, 229),
                                 ),
                               ),
                             ),
                           ),
                         ),
-
-                        const SizedBox(
-                          width: 10,
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            10,
+                          ),
                         ),
                         //보내기
-                        Image.asset(
-                          "images/button.png",
+                        Padding(
+                          padding: EdgeInsets.only(
+                            top: ScreenUtil().setHeight(
+                              2,
+                            ),
+                          ),
+                          child: SvgPicture.asset(
+                            "image/send.svg",
+                          ),
                         ),
                       ],
                     ),
@@ -561,7 +735,11 @@ class AppbarCard extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0),
+      padding: EdgeInsets.only(
+        top: ScreenUtil().setHeight(
+          5,
+        ),
+      ),
       child: Column(
         children: [
           Row(
@@ -576,24 +754,19 @@ class AppbarCard extends StatelessWidget {
                   //   ),
                   // );
                 },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(125),
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    child: image != null
-                        ? Image.asset(
-                            image!,
-                            // width: 20,
-                            // height: 30,
-                            fit: BoxFit.cover,
-                          )
-                        : const Text(''),
-                  ),
+                child: Container(
+                  child: image != null
+                      ? Image.asset(
+                          image!,
+                          // width: 20,
+                          // height: 30,
+                          fit: BoxFit.cover,
+                        )
+                      : const Text(''),
                 ),
               ),
               const SizedBox(
-                width: 10,
+                width: 20,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -610,8 +783,8 @@ class AppbarCard extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
-                      Image.asset(
-                        "images/gender/female.png",
+                      SvgPicture.asset(
+                        "image/gender/woman.svg",
                       ),
                     ],
                   ),
@@ -620,10 +793,8 @@ class AppbarCard extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      const Icon(
-                        Icons.location_on_sharp,
-                        color: Color.fromARGB(255, 137, 136, 136),
-                        size: 15,
+                      SvgPicture.asset(
+                        "image/map.svg",
                       ),
                       Text(
                         region,
@@ -635,8 +806,8 @@ class AppbarCard extends StatelessWidget {
                       const SizedBox(
                         width: 5.0,
                       ),
-                      Image.asset(
-                        "images/globe-light.png",
+                      SvgPicture.asset(
+                        "image/globe-light.svg",
                         color: Colors.black,
                       ),
                       const SizedBox(
@@ -652,22 +823,6 @@ class AppbarCard extends StatelessWidget {
                     ],
                   ),
                 ],
-              ),
-              const SizedBox(
-                width: 85,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => Texttest(),
-                    ),
-                  );
-                },
-                child: Image.asset(
-                  "images/dots.vertical.solid.png",
-                ),
               ),
             ],
           ),

@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mituks/chattingpage/view/detailprofile.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CashPage extends StatefulWidget {
   const CashPage({super.key});
@@ -13,13 +14,13 @@ class CashPage extends StatefulWidget {
 
 class _CashPageState extends State<CashPage> {
   static List<String> animalImagePath = [
-    'images/kim.png',
-    'images/kim.png',
-    'images/kim.png',
-    'images/kim.png',
-    'images/kim.png',
-    'images/kim.png',
-    'images/kim.png',
+    'image/person/personone.png',
+    'image/person/persontwo.png',
+    'image/person/personthree.png',
+    'image/person/personfour.png',
+    'image/person/personfive.png',
+    'image/person/personsix.png',
+    'image/person/personsix.png',
   ];
 
   static List<String> titleList = [
@@ -71,24 +72,24 @@ class _CashPageState extends State<CashPage> {
     "서울시 서초구",
   ];
 
-  static List<String> level = [
-    "images/level/crown-illust.png",
-    "images/level/crown-selver.png",
-    "images/level/crown-gold.png",
-    "images/level/crown-illust.png",
-    "images/level/crown-selver.png",
-    "images/level/crown-gold.png",
-    "images/level/crown-gold.png",
+  static List<String> Level = [
+    "image/level/bronz.svg",
+    "image/level/silver.svg",
+    "image/level/silver.svg",
+    "image/level/emerald.svg",
+    "image/level/gold.svg",
+    "image/level/gold.svg",
+    "image/level/gold.svg",
   ];
 
   static List<String> gender = [
-    "images/gender/female.png",
-    "images/gender/male.png",
-    "images/gender/female.png",
-    "images/gender/male.png",
-    "images/gender/female.png",
-    "images/gender/female.png",
-    "images/gender/female.png",
+    "image/gender/female.svg",
+    "image/gender/man.svg",
+    "image/gender/female.svg",
+    "image/gender/man.svg",
+    "image/gender/female.svg",
+    "image/gender/female.svg",
+    "image/gender/female.svg",
   ];
   @override
   Widget build(BuildContext context) {
@@ -97,28 +98,38 @@ class _CashPageState extends State<CashPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.arrow_back_ios_rounded,
-          color: Colors.grey,
+        centerTitle: true,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: SvgPicture.asset(
+            "image/Ic_toucharea.svg",
+          ),
         ),
         backgroundColor: Colors.white,
         elevation: 0.0,
-        title: const Text(
+        title: Text(
           '다이아몬드 선물 리스트',
           style: TextStyle(
             color: Colors.black,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w700,
+            fontSize: ScreenUtil().setSp(
+              18,
+            ),
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(
-          top: 20,
+        padding: EdgeInsets.only(
+          top: ScreenUtil().setHeight(
+            8,
+          ),
         ),
         child: ListView.separated(
           itemBuilder: (BuildContext context, int index) {
             return MessgeCard(
-              levelimage: level[index],
+              levelimage: Level[index],
               image: animalImagePath[index],
               title: titleList[index],
               region: region[index],
@@ -128,8 +139,10 @@ class _CashPageState extends State<CashPage> {
           },
           itemCount: animalImagePath.length,
           separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(
-              height: 20,
+            return SizedBox(
+              height: ScreenUtil().setHeight(
+                13,
+              ),
             );
           },
         ),
@@ -167,45 +180,55 @@ class MessgeCard extends StatelessWidget {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0),
+                padding: EdgeInsets.only(
+                  left: ScreenUtil().setWidth(
+                    20,
+                  ),
+                ),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement<void, void>(
+                    Navigator.push(
                       context,
-                      MaterialPageRoute<void>(
+                      MaterialPageRoute(
                         builder: (BuildContext context) =>
                             const DetailProfilePage(),
                       ),
                     );
                   },
                   child: Stack(
+                    clipBehavior: Clip.none,
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(125),
-                        child: Container(
-                          width: 70,
-                          height: 70,
-                          child: image != null
-                              ? Image.asset(
-                                  image!,
-                                  fit: BoxFit.cover,
-                                )
-                              : const Text(''),
-                        ),
+                      Container(
+                        child: image != null
+                            ? Image.asset(
+                                image!,
+                                fit: BoxFit.cover,
+                              )
+                            : const Text(''),
                       ),
                       Positioned(
-                        top: 50,
-                        left: 55,
+                        top: ScreenUtil().setHeight(
+                          40,
+                        ),
+                        left: ScreenUtil().setWidth(
+                          50,
+                        ),
                         child: Container(
-                          width: width / 25.0,
-                          height: 15,
+                          width: ScreenUtil().setWidth(
+                            14,
+                          ),
+                          height: ScreenUtil().setHeight(
+                            14,
+                          ),
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 122, 224, 125),
                             border: Border.all(
                               width: 2,
                               color: Colors.white,
                             ),
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(
+                              30,
+                            ),
                           ),
                         ),
                       ),
@@ -213,8 +236,10 @@ class MessgeCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: ScreenUtil().setWidth(
+                  16,
+                ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -223,82 +248,130 @@ class MessgeCard extends StatelessWidget {
                     // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       levelimage != null
-                          ? Image.asset(
+                          ? SvgPicture.asset(
                               levelimage!,
                               // width: 20,
                               // height: 30,
                               fit: BoxFit.cover,
                             )
                           : const Text(''),
-                      const SizedBox(
-                        width: 5.0,
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          2,
+                        ),
                       ),
                       Text(
                         title,
-                        style: const TextStyle(
-                          fontSize: 18,
+                        style: TextStyle(
+                          fontSize: ScreenUtil().setSp(
+                            16,
+                          ),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(
-                        width: 5.0,
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          6,
+                        ),
                       ),
                       //피그마 남여이미지
                       genderimage != null
-                          ? Image.asset(
+                          ? SvgPicture.asset(
                               genderimage!,
                               fit: BoxFit.cover,
                             )
                           : const Text(''),
-                      const SizedBox(
-                        width: 75,
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          83,
+                        ),
                       ),
-                      Container(
-                        height: 40,
-                        width: width / 9.0,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 207, 246, 242),
-                          borderRadius: BorderRadius.circular(
-                            30,
+                      GestureDetector(
+                        child: Container(
+                          height: ScreenUtil().setHeight(
+                            40,
+                          ),
+                          width: ScreenUtil().setWidth(
+                            40,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 207, 246, 242),
+                            borderRadius: BorderRadius.circular(
+                              100,
+                            ),
+                          ),
+                          child: SvgPicture.asset(
+                            "image/diamond.svg",
                           ),
                         ),
-                        child: Image.asset("images/mdi_hand-extended.png"),
                       ),
                     ],
                   ),
                   Row(
                     // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(
-                        Icons.location_on_sharp,
+                      SvgPicture.asset(
+                        "image/map.svg",
+                      ),
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          2,
+                        ),
+                      ),
+                      Text(
+                        region,
+                        style: TextStyle(
+                          fontSize: ScreenUtil().setSp(
+                            12,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          6,
+                        ),
+                      ),
+                      SvgPicture.asset(
+                        "image/globe-light.svg",
                         color: Colors.black,
-                        size: 17.0,
                       ),
-                      Text(region),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          2,
+                        ),
                       ),
-                      Image.asset(
-                        "images/globe-light.png",
-                        color: Colors.black,
+                      Text(
+                        language,
+                        style: TextStyle(
+                          fontSize: ScreenUtil().setSp(
+                            12,
+                          ),
+                        ),
                       ),
-                      const SizedBox(
-                        width: 5.0,
-                      ),
-                      Text(language),
                     ],
                   ),
                 ],
               ),
             ],
           ),
-          const SizedBox(
-            height: 15,
+          SizedBox(
+            height: ScreenUtil().setHeight(
+              12,
+            ),
           ),
           Container(
-            color: const Color.fromARGB(255, 232, 229, 229),
-            width: width / 1.0,
-            height: 1,
+            color: const Color.fromARGB(
+              255,
+              245,
+              245,
+              2245,
+            ),
+            width: ScreenUtil().setWidth(
+              375,
+            ),
+            height: ScreenUtil().setHeight(
+              1,
+            ),
           ),
         ],
       ),

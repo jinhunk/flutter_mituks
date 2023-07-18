@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mituks/bottomnavigation/root_tab.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../loginpage.dart';
 
@@ -40,6 +41,50 @@ class _FilterPageState extends State<FilterPage> {
   bool languagethree = false;
   bool languagefour = false;
   bool languagefive = false;
+  bool languagesix = false;
+  bool languageseven = false;
+
+//관심사
+  bool interest = false;
+  bool interestone = false;
+  bool interesttwo = false;
+  bool interestthree = false;
+  bool interestfour = false;
+  bool interestfive = false;
+  bool interessix = false;
+  bool interesseven = false;
+
+//직업
+  bool job = false;
+  bool jobtwo = false;
+  bool jobthree = false;
+  bool jobfour = false;
+  bool jobfive = false;
+  bool jobsix = false;
+  bool jobseven = false;
+  bool jobeee = false;
+  bool jobnine = false;
+//취미
+  bool hobbyone = false;
+  bool hobbytwo = false;
+  bool hobbythree = false;
+  bool hobbyfour = false;
+  bool hobbyfive = false;
+  bool hobbysix = false;
+  bool hobbyseven = false;
+  bool hobbyeee = false;
+  bool hobbynineeee = false;
+
+//성격
+  bool personality = false;
+  bool personalityone = false;
+  bool personalitytwo = false;
+  bool personalitythree = false;
+  bool personalityfour = false;
+  bool personalityfive = false;
+  bool personalitysix = false;
+  bool personalityseven = false;
+  bool personalityaee = false;
 
   Color color = Colors.grey;
 
@@ -50,6 +95,7 @@ class _FilterPageState extends State<FilterPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             Navigator.push(
@@ -59,15 +105,19 @@ class _FilterPageState extends State<FilterPage> {
               ),
             );
           },
-          child: const Icon(
-            Icons.arrow_back_ios_sharp,
-            color: Colors.grey,
+          child: SvgPicture.asset(
+            "image/Ic_toucharea.svg",
           ),
         ),
         backgroundColor: Colors.white,
-        title: const Text(
+        title: Text(
           '필터',
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(
+              fontWeight: FontWeight.w700,
+              color: Colors.black,
+              fontSize: ScreenUtil().setSp(
+                18,
+              )),
         ),
         elevation: 0.0,
       ),
@@ -75,19 +125,30 @@ class _FilterPageState extends State<FilterPage> {
         child: SafeArea(
           // 로딩바
           child: Padding(
-            padding: const EdgeInsets.only(left: 17.0),
+            padding: EdgeInsets.only(
+              left: ScreenUtil().setWidth(
+                20,
+              ),
+              top: ScreenUtil().setHeight(
+                16,
+              ),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
+                Text(
                   '나이별',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ScreenUtil().setSp(
+                      16,
+                    ),
+                  ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
@@ -103,18 +164,45 @@ class _FilterPageState extends State<FilterPage> {
                         });
                       },
                       color: age
-                          ? const Color.fromARGB(255, 230, 250, 249)
-                          : const Color.fromARGB(255, 250, 250, 250),
-                      title: '23~26세',
-                      width: width / 4.5,
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      title: '20~22세',
+                      width: ScreenUtil().setHeight(
+                        103,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       decoration: Border.all(
                         color: age
-                            ? const Color.fromARGB(255, 3, 201, 195)
-                            : const Color.fromARGB(255, 250, 250, 250),
+                            ? const Color.fromARGB(
+                                255,
+                                3,
+                                201,
+                                195,
+                              )
+                            : const Color.fromARGB(
+                                255,
+                                245,
+                                245,
+                                245,
+                              ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       onTap: () {
@@ -131,15 +219,27 @@ class _FilterPageState extends State<FilterPage> {
                           ? const Color.fromARGB(255, 230, 250, 249)
                           : const Color.fromARGB(255, 250, 250, 250),
                       title: '23~26세',
-                      width: width / 4.5,
+                      width: ScreenUtil().setHeight(
+                        103,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       decoration: Border.all(
                         color: agetwo
                             ? const Color.fromARGB(255, 3, 201, 195)
-                            : const Color.fromARGB(255, 250, 250, 250),
+                            : const Color.fromARGB(
+                                255,
+                                245,
+                                245,
+                                245,
+                              ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       onTap: () {
@@ -153,20 +253,32 @@ class _FilterPageState extends State<FilterPage> {
                         });
                       },
                       title: '27~29세',
-                      width: width / 4.5,
+                      width: ScreenUtil().setHeight(
+                        103,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       color: agethree
                           ? const Color.fromARGB(255, 230, 250, 249)
                           : const Color.fromARGB(255, 250, 250, 250),
                       decoration: Border.all(
                         color: agethree
                             ? const Color.fromARGB(255, 3, 201, 195)
-                            : const Color.fromARGB(255, 250, 250, 250),
+                            : const Color.fromARGB(
+                                255,
+                                245,
+                                245,
+                                245,
+                              ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
@@ -182,7 +294,12 @@ class _FilterPageState extends State<FilterPage> {
                         });
                       },
                       title: '30대',
-                      width: width / 4.5,
+                      width: ScreenUtil().setHeight(
+                        103,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       color: agefour
                           ? const Color.fromARGB(255, 230, 250, 249)
                           : const Color.fromARGB(255, 250, 250, 250),
@@ -192,8 +309,10 @@ class _FilterPageState extends State<FilterPage> {
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       onTap: () {
@@ -207,27 +326,46 @@ class _FilterPageState extends State<FilterPage> {
                         });
                       },
                       title: '40대',
-                      width: width / 5.5,
+                      width: ScreenUtil().setHeight(
+                        103,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       color: agefive
                           ? const Color.fromARGB(255, 230, 250, 249)
                           : const Color.fromARGB(255, 250, 250, 250),
                       decoration: Border.all(
                         color: agefive
                             ? const Color.fromARGB(255, 3, 201, 195)
-                            : const Color.fromARGB(255, 250, 250, 250),
+                            : const Color.fromARGB(
+                                255,
+                                245,
+                                245,
+                                245,
+                              ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    26,
+                  ),
                 ),
-                const Text(
+                Text(
                   '언어',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ScreenUtil().setSp(
+                      16,
+                    ),
+                  ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
@@ -239,8 +377,13 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '한국어',
-                      width: width / 4.5,
+                      title: '',
+                      width: ScreenUtil().setHeight(
+                        82,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       color: language
                           ? const Color.fromARGB(255, 230, 250, 249)
                           : const Color.fromARGB(255, 250, 250, 250),
@@ -249,9 +392,12 @@ class _FilterPageState extends State<FilterPage> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
+                      image: "image/language/korea.png",
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       onTap: () {
@@ -261,19 +407,32 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '일본어',
-                      width: width / 4.7,
+                      title: '',
+                      width: ScreenUtil().setHeight(
+                        82,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       color: languagetwo
                           ? const Color.fromARGB(255, 230, 250, 249)
-                          : const Color.fromARGB(255, 250, 250, 250),
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
                       decoration: Border.all(
                         color: languagetwo
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
+                      image: "image/language/ja.png",
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       onTap: () {
@@ -283,8 +442,13 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '영어',
-                      width: width / 5.5,
+                      title: '',
+                      width: ScreenUtil().setHeight(
+                        82,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       color: languagethree
                           ? const Color.fromARGB(255, 230, 250, 249)
                           : const Color.fromARGB(255, 250, 250, 250),
@@ -293,11 +457,14 @@ class _FilterPageState extends State<FilterPage> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
+                      image: "image/language/egg.png",
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
@@ -309,8 +476,13 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '불어',
-                      width: width / 5.5,
+                      title: '',
+                      width: ScreenUtil().setHeight(
+                        82,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       color: languagefour
                           ? const Color.fromARGB(255, 230, 250, 249)
                           : const Color.fromARGB(255, 250, 250, 250),
@@ -319,9 +491,12 @@ class _FilterPageState extends State<FilterPage> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
+                      image: "image/language/blu.png",
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       onTap: () {
@@ -331,283 +506,1222 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '중국어',
-                      width: width / 4.7,
+                      title: '',
+                      width: ScreenUtil().setHeight(
+                        82,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
                       color: languagefive
                           ? const Color.fromARGB(255, 230, 250, 249)
                           : const Color.fromARGB(255, 250, 250, 250),
                       decoration: Border.all(
                         color: languagefive
                             ? const Color.fromARGB(255, 3, 201, 195)
-                            : const Color.fromARGB(255, 250, 250, 250),
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      image: "image/language/china.png",
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    24,
+                  ),
+                ),
+                Text(
+                  '관심사',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ScreenUtil().setSp(
+                      16,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
+                ),
+                Row(
+                  children: [
+                    ContainerWidgt(
+                      onTap: () {
+                        if (interest = !interest) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: interest
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: interest
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      title: '',
+                      image: "image/study.png",
+                    ),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
                       ),
                     ),
+                    ContainerWidgt(
+                      onTap: () {
+                        if (interesttwo = !interesttwo) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: interesttwo
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: interesttwo
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      title: '',
+                      image: "image/game.png",
+                    ),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
+                    ),
+                    ContainerWidgt(
+                      onTap: () {
+                        if (interestthree = !interestthree) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: interestthree
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: interestthree
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      title: "",
+                      image: "image/dog.png",
+                    ),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
+                    ),
+                    ContainerWidgt(
+                      onTap: () {
+                        if (interestfour = !interestfour) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: interestfour
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: interestfour
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      title: '',
+                      image: "image/ummsic.png",
+                    ),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Text(
-                  '관심사',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
-                ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
                     ContainerWidgt(
-                      title: '공부',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (interestfive = !interestfive) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: interestfive
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: interestfive
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      title: '',
+                      image: "image/run.png",
                     ),
                     const SizedBox(
                       width: 10,
                     ),
                     ContainerWidgt(
-                      title: '게임',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (interessix = !interessix) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        94,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: interessix
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: interessix
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      image: "image/ansghk.png",
+                      title: '',
                     ),
                     const SizedBox(
                       width: 10,
                     ),
                     ContainerWidgt(
-                      title: '동물',
-                      width: width / 6.0,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    ContainerWidgt(
-                      title: '음식',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (interesseven = !interesseven) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        94,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: interesseven
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: interesseven
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      title: '',
+                      image: "image/Interest/plddd.png",
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    24,
+                  ),
                 ),
-                Row(
-                  children: [
-                    ContainerWidgt(
-                      title: '운동',
-                      width: width / 6.0,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    ContainerWidgt(
-                      title: '문화생활',
-                      width: width / 5.0,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    ContainerWidgt(
-                      title: '해왜여행',
-                      width: width / 5.0,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Text(
+                Text(
                   '직업',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ScreenUtil().setSp(
+                      16,
+                    ),
+                  ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
                     ContainerWidgt(
                       title: '학생',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (job = !job) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: job
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: job
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       title: '모델',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (jobtwo = !jobtwo) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: jobtwo
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: jobtwo
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
+                      onTap: () {
+                        if (jobthree = !jobthree) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: jobthree
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: jobthree
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                       title: '선생님',
-                      width: width / 6.0,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       title: '사업가',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (jobfour = !jobfour) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: jobfour
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: jobfour
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       title: '승무원',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (jobfive = !jobfive) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: jobfive
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: jobfive
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
                     ContainerWidgt(
                       title: '취미',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (jobsix = !jobsix) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: jobsix
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: jobsix
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       title: '취미',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (jobseven = !jobseven) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: jobseven
+                          ? const Color.fromARGB(255, 230, 250, 249)
+                          : const Color.fromARGB(255, 250, 250, 250),
+                      decoration: Border.all(
+                        color: jobseven
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       title: '취미',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (jobeee = !jobeee) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: jobeee
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: jobeee
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    24,
+                  ),
                 ),
-                const Text(
+                Text(
                   '취미',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ScreenUtil().setSp(
+                      16,
+                    ),
+                  ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    ContainerWidgt(
-                      title: '골프',
-                      width: width / 6.0,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    ContainerWidgt(
-                      title: '축구',
-                      width: width / 6.0,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    ContainerWidgt(
-                      title: '테니스',
-                      width: width / 6.0,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    ContainerWidgt(
-                      title: '산책',
-                      width: width / 6.0,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
                     ContainerWidgt(
-                      title: '수영',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (hobbyone = !hobbyone) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: hobbyone
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: hobbyone
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      image: "image/golf.png",
+                      title: '',
+                    ),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
+                    ),
+                    ContainerWidgt(
+                      onTap: () {
+                        if (hobbytwo = !hobbytwo) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setHeight(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: hobbytwo
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: hobbytwo
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      title: '',
+                      image: "image/soccer.png",
                     ),
                     const SizedBox(
                       width: 10,
                     ),
                     ContainerWidgt(
-                      title: '요가',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (hobbythree = !hobbythree) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        82,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: hobbythree
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: hobbythree
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      image: "image/xpsltm.png",
+                      title: '',
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
-                      title: '피아노',
-                      width: width / 6.0,
+                      onTap: () {
+                        if (hobbyfour = !hobbyfour) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: hobbyfour
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: hobbyfour
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      image: "image/runrun.png",
+                      title: '',
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
-                const Text(
+                Row(
+                  children: [
+                    ContainerWidgt(
+                      onTap: () {
+                        if (hobbyfive = !hobbyfive) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: hobbyfive
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: hobbyfive
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      title: '',
+                      image: "image/anf.png",
+                    ),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
+                    ),
+                    ContainerWidgt(
+                      onTap: () {
+                        if (hobbysix = !hobbysix) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        70,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: hobbysix
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: hobbysix
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      image: "image/dyrk.png",
+                      title: '',
+                    ),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
+                    ),
+                    ContainerWidgt(
+                      onTap: () {
+                        if (hobbyseven = !hobbyseven) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        82,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: hobbyseven
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: hobbyseven
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
+                      image: "image/piano.png",
+                      title: '',
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    24,
+                  ),
+                ),
+                Text(
                   '성격',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ScreenUtil().setSp(
+                      16,
+                    ),
+                  ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
                     ContainerWidgt(
+                      onTap: () {
+                        if (personality = !personality) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        77,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: personality
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: personality
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                       title: '내향적인',
-                      width: width / 6.0,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
+                      onTap: () {
+                        if (personalityone = !personalityone) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        77,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: personalityone
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: personalityone
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                       title: '외향적인',
-                      width: width / 6.0,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
+                      onTap: () {
+                        if (personalitytwo = !personalitytwo) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        53,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: personalitytwo
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: personalitytwo
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                       title: '착한',
-                      width: width / 6.0,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
+                      onTap: () {
+                        if (personalitythree = !personalitythree) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        101,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: personalitythree
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: personalitythree
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                       title: '유머감각있는',
-                      width: width / 4.0,
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    10,
+                  ),
                 ),
                 Row(
                   children: [
                     ContainerWidgt(
+                      onTap: () {
+                        if (personalityfour = !personalityfour) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        65,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: personalityfour
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: personalityfour
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                       title: '다정한',
-                      width: width / 6.0,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
+                      onTap: () {
+                        if (personalityfive = !personalityfive) {
+                          _addCounter();
+                        } else {
+                          _subtractCounter();
+                        }
+                      },
+                      width: ScreenUtil().setWidth(
+                        77,
+                      ),
+                      hight: ScreenUtil().setHeight(
+                        36,
+                      ),
+                      color: personalityfive
+                          ? const Color.fromARGB(
+                              255,
+                              230,
+                              250,
+                              249,
+                            )
+                          : const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                      decoration: Border.all(
+                        color: personalityfive
+                            ? const Color.fromARGB(255, 3, 201, 195)
+                            : const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                      ),
                       title: '이성적인',
-                      width: width / 6.0,
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    56,
+                  ),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -619,8 +1733,12 @@ class _FilterPageState extends State<FilterPage> {
                     // );
                   },
                   child: Container(
-                    width: width / 1.1,
-                    height: 50,
+                    width: ScreenUtil().setWidth(
+                      335,
+                    ),
+                    height: ScreenUtil().setHeight(
+                      56,
+                    ),
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(
                         255,
@@ -629,7 +1747,7 @@ class _FilterPageState extends State<FilterPage> {
                         213,
                       ),
                       borderRadius: BorderRadius.circular(
-                        15,
+                        16,
                       ),
                     ),
                     child: Center(
@@ -646,39 +1764,53 @@ class _FilterPageState extends State<FilterPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(
+                            Text(
                               '필터 적용하기',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: const Color.fromARGB(
+                                  255,
+                                  255,
+                                  255,
+                                  255,
+                                ),
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15.0,
+                                fontSize: ScreenUtil().setSp(
+                                  16,
+                                ),
                               ),
                             ),
-                            const SizedBox(
-                              width: 5,
+                            SizedBox(
+                              width: ScreenUtil().setWidth(
+                                6,
+                              ),
                             ),
                             Container(
-                              width: width / 20.0,
-                              height: height / 40.0,
+                              width: ScreenUtil().setWidth(
+                                20,
+                              ),
+                              height: ScreenUtil().setHeight(
+                                20,
+                              ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                   20,
                                 ),
                                 color: Colors.white,
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 2,
-                                ),
+                              child: Center(
                                 child: Text(
                                   '$_counter',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     color: Color.fromARGB(
                                       255,
                                       21,
                                       213,
                                       213,
                                     ),
+                                    fontSize: ScreenUtil().setSp(
+                                      12,
+                                    ),
+                                    fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -705,6 +1837,7 @@ class ContainerWidgt extends StatelessWidget {
   final String? image;
   final String title;
   final double width;
+  final double? hight;
   final VoidCallback? onTap;
   final Color? color;
   final Border? decoration;
@@ -717,6 +1850,7 @@ class ContainerWidgt extends StatelessWidget {
     this.onTap,
     this.color,
     this.decoration,
+    this.hight,
   });
 
   @override
@@ -724,11 +1858,11 @@ class ContainerWidgt extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 30,
+        height: hight,
         width: width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
-              20,
+              100,
             ),
             color: color,
             border: decoration),
@@ -739,8 +1873,7 @@ class ContainerWidgt extends StatelessWidget {
             image != null
                 ? Image.asset(
                     image!,
-                    width: 20,
-                    height: 30,
+                    width: 60,
                   )
                 : const Text(''),
             const SizedBox(
@@ -748,8 +1881,11 @@ class ContainerWidgt extends StatelessWidget {
             ),
             Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.black,
+                fontSize: ScreenUtil().setSp(
+                  14,
+                ),
               ),
             ),
           ],

@@ -63,11 +63,23 @@ class _LoginPageState extends State<LoginPage> {
                     isScrollControlled: true,
                     context: context,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(
+                        20.0,
+                      ),
                     ),
                     builder: (context) {
-                      return SizedBox(
-                        // height: height / 1.32,
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            30,
+                          ),
+                        ),
+                        height: ScreenUtil().setHeight(
+                          662,
+                        ),
+                        width: ScreenUtil().setWidth(
+                          375,
+                        ),
                         child: Stack(
                           children: [
                             Positioned.fill(
@@ -78,37 +90,49 @@ class _LoginPageState extends State<LoginPage> {
                                   sigmaY: 5,
                                 ),
                                 child: Container(
-                                  color: Colors.black.withOpacity(
-                                    0,
-                                  ),
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                 // left: 20.0,
-                                top: 20.0,
+                                top: ScreenUtil().setHeight(
+                                  20,
+                                ),
                               ),
                               child: Column(
                                 // mainAxisAlignment: MainAxisAlignment.center,
                                 // crossAxisAlignment: CrossAxisAlignment.center,
                                 // mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Text(
+                                  Text(
                                     '출석체크',
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
+                                      color: Colors.black,
+                                      fontSize: ScreenUtil().setSp(
+                                        20,
+                                      ),
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: ScreenUtil().setHeight(
+                                      4,
+                                    ),
                                   ),
-                                  const Text(
+                                  Text(
                                     '7일 연속 출석 시 500C 지급',
+                                    style: TextStyle(
+                                      fontSize: ScreenUtil().setSp(
+                                        14,
+                                      ),
+                                    ),
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: ScreenUtil().setHeight(
+                                      12,
+                                    ),
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -116,169 +140,186 @@ class _LoginPageState extends State<LoginPage> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       CouponContanier(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                3.5,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                8.0,
+                                        width: ScreenUtil().setWidth(
+                                          98,
+                                        ),
+                                        height: ScreenUtil().setHeight(
+                                          98,
+                                        ),
                                         title: '1일차',
                                         description: "100c",
-                                        style: const TextStyle(
-                                          color: Color.fromARGB(
+                                        style: TextStyle(
+                                          color: const Color.fromARGB(
                                             255,
-                                            3,
-                                            201,
-                                            195,
+                                            2,
+                                            161,
+                                            156,
                                           ),
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 17.0,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
                                         ),
+                                        image: "image/coincoin.svg",
                                       ),
                                       const SizedBox(
                                         width: 10,
                                       ),
                                       CouponContanier(
-                                        style: const TextStyle(
-                                          color: Color.fromARGB(
+                                        style: TextStyle(
+                                          color: const Color.fromARGB(
                                             255,
-                                            3,
-                                            201,
-                                            195,
+                                            2,
+                                            161,
+                                            156,
                                           ),
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 17.0,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
                                         ),
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                3.5,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                8.0,
+                                        width: ScreenUtil().setWidth(
+                                          98,
+                                        ),
+                                        height: ScreenUtil().setHeight(
+                                          98,
+                                        ),
+                                        image: "image/coincoin.svg",
                                         title: '2일차',
                                         description: "100c",
                                       ),
-                                      const SizedBox(
-                                        width: 10,
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          12,
+                                        ),
                                       ),
                                       CouponContanier(
-                                        style: const TextStyle(
-                                          color: Color.fromARGB(
+                                        style: TextStyle(
+                                          color: const Color.fromARGB(
                                             255,
-                                            3,
-                                            201,
-                                            195,
+                                            2,
+                                            161,
+                                            156,
                                           ),
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 17.0,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
                                         ),
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                3.5,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                8.0,
+                                        width: ScreenUtil().setWidth(
+                                          98,
+                                        ),
+                                        height: ScreenUtil().setHeight(
+                                          98,
+                                        ),
+                                        image: "image/coincoin.svg",
                                         title: '3일차',
                                         description: "100c",
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: ScreenUtil().setHeight(
+                                      12,
+                                    ),
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       CouponContanier(
-                                        style: const TextStyle(
-                                          color: Color.fromARGB(
+                                        style: TextStyle(
+                                          color: const Color.fromARGB(
                                             255,
-                                            3,
-                                            201,
-                                            195,
+                                            2,
+                                            161,
+                                            156,
                                           ),
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 17.0,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
                                         ),
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                3.5,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                8.0,
+                                        width: ScreenUtil().setWidth(
+                                          98,
+                                        ),
+                                        height: ScreenUtil().setHeight(
+                                          98,
+                                        ),
+                                        image: "image/coincoin.svg",
                                         title: '4일차',
                                         description: "100c",
                                       ),
-                                      const SizedBox(
-                                        width: 10,
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          12,
+                                        ),
                                       ),
                                       CouponContanier(
-                                        style: const TextStyle(
-                                          color: Color.fromARGB(
+                                        style: TextStyle(
+                                          color: const Color.fromARGB(
                                             255,
-                                            3,
-                                            201,
-                                            195,
+                                            2,
+                                            161,
+                                            156,
                                           ),
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 17.0,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
                                         ),
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                3.5,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                8.0,
+                                        width: ScreenUtil().setWidth(
+                                          98,
+                                        ),
+                                        height: ScreenUtil().setHeight(
+                                          98,
+                                        ),
+                                        image: "image/coincoin.svg",
                                         title: '5일차',
                                         description: "100c",
                                       ),
-                                      const SizedBox(
-                                        width: 10,
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          12,
+                                        ),
                                       ),
                                       CouponContanier(
-                                        style: const TextStyle(
-                                          color: Color.fromARGB(
+                                        style: TextStyle(
+                                          color: const Color.fromARGB(
                                             255,
-                                            3,
-                                            201,
-                                            195,
+                                            2,
+                                            161,
+                                            156,
                                           ),
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 17.0,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
                                         ),
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                3.5,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                8.0,
+                                        width: ScreenUtil().setWidth(
+                                          98,
+                                        ),
+                                        height: ScreenUtil().setHeight(
+                                          98,
+                                        ),
                                         title: '6일차',
+                                        image: "image/coincoin.svg",
                                         description: "100c",
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: ScreenUtil().setHeight(
+                                      12,
+                                    ),
                                   ),
-                                  CouponContanier(
-                                    style: const TextStyle(
-                                        color: Color.fromARGB(
-                                          255,
-                                          3,
-                                          201,
-                                          195,
-                                        ),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                    width:
-                                        MediaQuery.of(context).size.width / 1.1,
-                                    height: MediaQuery.of(context).size.height /
-                                        8.0,
-                                    title: '7일차',
-                                    description: "500c",
+                                  Image.asset(
+                                    "image/iconbuttonseven.png",
+                                    scale: 0.95,
                                   ),
-                                  const SizedBox(
-                                    height: 130,
+                                  SizedBox(
+                                    height: ScreenUtil().setHeight(
+                                      130,
+                                    ),
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -291,8 +332,12 @@ class _LoginPageState extends State<LoginPage> {
                                       // );
                                     },
                                     child: Container(
-                                      height: 60,
-                                      width: width / 1.1,
+                                      height: ScreenUtil().setHeight(
+                                        56,
+                                      ),
+                                      width: ScreenUtil().setWidth(
+                                        335,
+                                      ),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(
                                           15,
@@ -304,10 +349,13 @@ class _LoginPageState extends State<LoginPage> {
                                           195,
                                         ),
                                       ),
-                                      child: const Center(
+                                      child: Center(
                                         child: Text(
                                           '확인',
                                           style: TextStyle(
+                                            fontSize: ScreenUtil().setSp(
+                                              16,
+                                            ),
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
                                           ),
@@ -524,7 +572,12 @@ class CouponContanier extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: const Color.fromARGB(255, 240, 236, 236),
+        color: const Color.fromARGB(
+          245,
+          245,
+          245,
+          245,
+        ),
       ),
       width: width,
       height: height,
@@ -533,13 +586,21 @@ class CouponContanier extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(title),
+          SizedBox(
+            height: ScreenUtil().setHeight(
+              6,
+            ),
+          ),
           image != null
-              ? Image.asset(
+              ? SvgPicture.asset(
                   image!,
-                  width: 20,
-                  height: 30,
                 )
               : const Text(''),
+          SizedBox(
+            height: ScreenUtil().setHeight(
+              2,
+            ),
+          ),
           Text(
             description,
             style: style,

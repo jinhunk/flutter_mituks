@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ChattingPage extends StatefulWidget {
   const ChattingPage({super.key});
@@ -11,13 +13,13 @@ class ChattingPage extends StatefulWidget {
 
 class _ChattingPageState extends State<ChattingPage> {
   static List<String> animalImagePath = [
-    'images/kimm.png',
-    'images/kimm.png',
-    'images/kimm.png',
-    'images/kimm.png',
-    'images/kimm.png',
-    'images/kimm.png',
-    'images/kimm.png',
+    'image/Rectangle.png',
+    'image/Rectangleone.png',
+    'image/Rectangletwo.png',
+    'image/Rectanglethree.png',
+    'image/Rectanglefour.png',
+    'image/Rectanglefive.png',
+    'image/Rectanglesix.png',
   ];
 
   static List<String> titleList = [
@@ -59,14 +61,14 @@ class _ChattingPageState extends State<ChattingPage> {
     "안녕하세요, 오늘 뭐해요?",
   ];
 
-  static List<String> level = [
-    "images/level/crown-illust.png",
-    "images/level/crown-selver.png",
-    "images/level/crown-gold.png",
-    "images/level/crown-illust.png",
-    "images/level/crown-selver.png",
-    "images/level/crown-gold.png",
-    "images/level/crown-gold.png",
+  static List<String> Level = [
+    "image/level/bronz.svg",
+    "image/level/silver.svg",
+    "image/level/silver.svg",
+    "image/level/emerald.svg",
+    "image/level/gold.svg",
+    "image/level/gold.svg",
+    "image/level/gold.svg",
   ];
 
   @override
@@ -76,15 +78,17 @@ class _ChattingPageState extends State<ChattingPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.arrow_back_ios_rounded,
-          color: Colors.grey,
+        leading: SvgPicture.asset(
+          "image/backs.svg",
         ),
         backgroundColor: Colors.white,
         elevation: 0.0,
-        title: const Text(
+        title: Text(
           '메세지',
           style: TextStyle(
+            fontSize: ScreenUtil().setSp(
+              18,
+            ),
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
@@ -103,7 +107,7 @@ class _ChattingPageState extends State<ChattingPage> {
               language: language[inedx],
               count: '카운트',
               time: '14:22',
-              imagelevel: level[inedx],
+              imagelevel: Level[inedx],
             );
           },
           itemCount: animalImagePath.length,
@@ -152,9 +156,6 @@ class MessgeCard extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Stack(
                   children: [
-                    Image.asset(
-                      "images/Rectanglechatting.png",
-                    ),
                     Positioned(
                       top: 45,
                       left: 50,
@@ -182,7 +183,7 @@ class MessgeCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Image.asset(
+                      SvgPicture.asset(
                         imagelevel,
                       ),
                       const SizedBox(
@@ -210,8 +211,8 @@ class MessgeCard extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset(
-                              "images/globe-light.png",
+                            SvgPicture.asset(
+                              "image/globe-light.svg",
                               color: Colors.black,
                             ),
                             const SizedBox(
@@ -238,7 +239,9 @@ class MessgeCard extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text(description),
+                      Text(
+                        description,
+                      ),
                       const SizedBox(
                         width: 87,
                       ),

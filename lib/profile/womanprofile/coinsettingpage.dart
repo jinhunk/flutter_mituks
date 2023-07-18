@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CoinSettingPage extends StatefulWidget {
   const CoinSettingPage({super.key});
@@ -16,15 +18,15 @@ class _CoinSettingPageState extends State<CoinSettingPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.white,
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
           },
-          child: const Icon(
-            Icons.arrow_back_ios_sharp,
-            color: Colors.grey,
+          child: SvgPicture.asset(
+            "image/Ic_toucharea.svg",
           ),
         ),
         title: const Text(
@@ -36,24 +38,37 @@ class _CoinSettingPageState extends State<CoinSettingPage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 80.0),
+        padding: EdgeInsets.only(
+          top: ScreenUtil().setHeight(
+            48,
+          ),
+        ),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 '기본 메세지 코인 설정',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
+                  fontSize: ScreenUtil().setSp(
+                    16,
+                  ),
                 ),
               ),
-              const SizedBox(
-                height: 25.0,
+              SizedBox(
+                height: ScreenUtil().setHeight(
+                  20,
+                ),
               ),
               Container(
-                width: width / 3.5,
-                height: 110,
+                width: ScreenUtil().setWidth(
+                  117,
+                ),
+                height: ScreenUtil().setHeight(
+                  123,
+                ),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: const Color.fromARGB(255, 148, 233, 225),
@@ -69,69 +84,101 @@ class _CoinSettingPageState extends State<CoinSettingPage> {
                   children: [
                     Text(
                       '$valueHolder',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
-                        fontSize: 25.0,
+                        fontSize: ScreenUtil().setSp(
+                          28,
+                        ),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
+                    Text(
                       'Coin',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15.0,
+                        fontSize: ScreenUtil().setSp(
+                          16,
+                        ),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              Slider(
-                value: valueHolder.toDouble(),
-                min: 50,
-                max: 500,
-                divisions: 100,
-                activeColor: const Color.fromARGB(
-                  255,
-                  3,
-                  201,
-                  195,
+              SizedBox(
+                height: ScreenUtil().setHeight(
+                  52,
                 ),
-                thumbColor: Colors.white,
-                inactiveColor: Colors.grey,
-                label: '${valueHolder.round()}',
-                onChanged: (double newValue) {
-                  setState(() {
-                    valueHolder = newValue.round();
-                  });
-                },
-                semanticFormatterCallback: (double newValue) {
-                  return '${newValue.round()}';
-                },
               ),
-              const Row(
+              Container(
+                child: Slider(
+                  value: valueHolder.toDouble(),
+                  min: 50,
+                  max: 500,
+                  divisions: 100,
+                  activeColor: const Color.fromARGB(
+                    255,
+                    3,
+                    201,
+                    195,
+                  ),
+                  thumbColor: Colors.white,
+                  inactiveColor: const Color.fromARGB(
+                    255,
+                    163,
+                    163,
+                    163,
+                  ),
+                  label: '${valueHolder.round()}',
+                  onChanged: (double newValue) {
+                    setState(() {
+                      valueHolder = newValue.round();
+                    });
+                  },
+                  semanticFormatterCallback: (double newValue) {
+                    return '${newValue.round()}';
+                  },
+                ),
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                      left: 20.0,
+                      left: ScreenUtil().setWidth(
+                        20,
+                      ),
                     ),
                     child: Text(
                       '50',
+                      style: TextStyle(
+                        fontSize: ScreenUtil().setSp(
+                          14,
+                        ),
+                      ),
                     ),
                   ),
                   Text(
                     '275',
+                    style: TextStyle(
+                      fontSize: ScreenUtil().setSp(
+                        14,
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                      right: 15.0,
+                      right: ScreenUtil().setWidth(
+                        20,
+                      ),
                     ),
                     child: Text(
                       '500',
+                      style: TextStyle(
+                        fontSize: ScreenUtil().setSp(
+                          14,
+                        ),
+                      ),
                     ),
                   ),
                 ],

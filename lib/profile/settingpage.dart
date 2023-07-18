@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mituks/profile/womanprofile/coinsettingpage.dart';
 import 'package:flutter_mituks/view/profilepage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ProfileSettingPage extends StatefulWidget {
   const ProfileSettingPage({super.key});
@@ -51,7 +53,7 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        // centerTitle: true,
+        centerTitle: true,
         title: const Text(
           '내 프로필',
           style: TextStyle(
@@ -70,14 +72,17 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
               ),
             );
           },
-          child: const Icon(
-            Icons.arrow_back_ios_rounded,
-            color: Colors.grey,
+          child: SvgPicture.asset(
+            "image/Ic_toucharea.svg",
           ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 8.0),
+            padding: EdgeInsets.only(
+              right: ScreenUtil().setWidth(
+                16,
+              ),
+            ),
             child: Row(
               children: [
                 GestureDetector(
@@ -91,8 +96,12 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                     );
                   },
                   child: Container(
-                    width: width / 4.3,
-                    height: 40,
+                    width: ScreenUtil().setWidth(
+                      88,
+                    ),
+                    height: ScreenUtil().setHeight(
+                      34,
+                    ),
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(
                         255,
@@ -100,16 +109,20 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                         201,
                         195,
                       ),
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(
+                        100,
+                      ),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          "images/coincoins.png",
+                        SvgPicture.asset(
+                          "image/settingcoin.svg",
                         ),
-                        const SizedBox(
-                          width: 5.0,
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            4,
+                          ),
                         ),
                         const Text(
                           '코인 설정',
@@ -128,256 +141,138 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Stack(
-                clipBehavior: Clip.none,
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: ScreenUtil().setHeight(8),
+            left: ScreenUtil().setWidth(
+              20,
+            ),
+            right: ScreenUtil().setWidth(
+              20,
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
                 children: [
-                  CircleAvatar(
-                    radius: 60,
+                  Center(
                     child: Image.asset(
-                      "images/person/Avataklraa.png",
+                      "image/profileborder.png",
                     ),
                   ),
-                  Positioned(
-                    top: 75,
-                    left: 90,
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: ScreenUtil().setHeight(80),
+                      left: ScreenUtil().setWidth(
+                        200,
+                      ),
+                    ),
                     child: Container(
-                      height: 40,
-                      width: width / 10.0,
+                      width: ScreenUtil().setWidth(
+                        40,
+                      ),
+                      height: ScreenUtil().setHeight(
+                        40,
+                      ),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 238, 236, 236),
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(
+                          100,
+                        ),
+                        color: const Color.fromARGB(
+                          255,
+                          245,
+                          245,
+                          245,
+                        ),
                       ),
                       child: const Icon(
                         Icons.camera_alt,
-                        color: Colors.black38,
+                        color: Colors.grey,
+                        size: 30,
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 8.0,
+              SizedBox(
+                height: ScreenUtil().setHeight(
+                  14,
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const DescriptionContainer(
-                    title: "이름름",
-                    titledescription: "장미수수",
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const DescriptionContainer(
-                    title: "아이디",
-                    titledescription: "chlwlsgur1",
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const DescriptionContainer(
-                    title: "이메일",
-                    titledescription: "chlwlsgur23@gmail.com",
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      left: 20.0,
+              Padding(
+                padding: const EdgeInsets.only(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const DescriptionContainer(
+                      title: "이름",
+                      titledescription: "장미수",
                     ),
-                    child: Text(
-                      "성별",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w700),
+                    SizedBox(
+                        height: ScreenUtil().setHeight(
+                      20,
+                    )),
+                    const DescriptionContainer(
+                      title: "아이디",
+                      titledescription: "chlwlsgur1",
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _manbox = !_manbox;
-                            genderman();
-                            print(_manbox);
-                          });
-                        },
-                        child: Container(
-                          height: 50,
-                          width: width / 2.3,
-                          decoration: BoxDecoration(
-                            border: _manbox
-                                ? Border.all(
-                                    color: const Color.fromARGB(
-                                      255,
-                                      3,
-                                      201,
-                                      195,
-                                    ),
-                                  )
-                                : Border.all(
-                                    color: Colors.grey,
-                                  ),
-                            borderRadius: BorderRadius.circular(5),
-                            color: _manbox
-                                ? const Color.fromARGB(
-                                    255,
-                                    230,
-                                    250,
-                                    249,
-                                  )
-                                : null,
-                          ),
-                          child: Center(
-                            child: Text(
-                              _man,
-                            ),
-                          ),
+                    SizedBox(
+                        height: ScreenUtil().setHeight(
+                      20,
+                    )),
+                    const DescriptionContainer(
+                      title: "이메일",
+                      titledescription: "chlwlsgur23@gmail.com",
+                    ),
+                    SizedBox(
+                        height: ScreenUtil().setHeight(
+                      20,
+                    )),
+                    const Padding(
+                      padding: EdgeInsets.only(),
+                      child: Text(
+                        "성별",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _womanbox = !_womanbox;
-                            genderWoman();
-                            print(_womanbox);
-                          });
-                        },
-                        child: Container(
-                          height: 50,
-                          width: width / 2.3,
-                          child: Center(
-                            child: Text(
-                              _woman,
-                            ),
-                          ),
-                          decoration: BoxDecoration(
-                            border: _womanbox
-                                ? Border.all(
-                                    color: const Color.fromARGB(
-                                      255,
-                                      3,
-                                      201,
-                                      195,
-                                    ),
-                                  )
-                                : Border.all(
-                                    color: Colors.grey,
-                                  ),
-                            borderRadius: BorderRadius.circular(5),
-                            color: _womanbox
-                                ? const Color.fromARGB(
-                                    255,
-                                    230,
-                                    250,
-                                    249,
-                                  )
-                                : null,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const DescriptionContainer(
-                    title: "생년월일",
-                    titledescription: "19920-04-06",
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const DescriptionContainer(
-                    title: "위치",
-                    titledescription: "서울시 강남구",
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      '음성메세지',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                  Center(
-                    child: Container(
-                      width: width / 1.1,
-                      height: 120,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 231, 228, 228),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 10.0,
-                            left: 20.0,
-                            child: Container(
-                              height: 40,
-                              width: 40.0,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 67, 214, 200),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Image.asset(
-                                "images/media-play-solid.png",
-                              ),
+                    SizedBox(
+                        height: ScreenUtil().setHeight(
+                      8,
+                    )),
+                    Row(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _manbox = !_manbox;
+                              genderman();
+                              print(_manbox);
+                            });
+                          },
+                          child: Container(
+                            height: ScreenUtil().setHeight(
+                              48,
                             ),
-                          ),
-                          Positioned(
-                            left: 70.0,
-                            top: 15,
-                            child: Image.asset(
-                              "images/Frame_radio.png",
+                            width: ScreenUtil().setWidth(
+                              162,
                             ),
-                          ),
-                          const Positioned(
-                            left: 265,
-                            top: 22,
-                            child: Text(
-                              "8:00 / 0:10",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 13.0,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 70,
-                            left: 80,
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 35,
-                                  width: 100.0,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
+                            decoration: BoxDecoration(
+                              border: _manbox
+                                  ? Border.all(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        3,
+                                        201,
+                                        195,
+                                      ),
+                                    )
+                                  : Border.all(
                                       color: const Color.fromARGB(
                                         255,
                                         229,
@@ -385,266 +280,621 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                                         229,
                                       ),
                                     ),
-                                    color: const Color.fromARGB(
+                              borderRadius: BorderRadius.circular(8),
+                              color: _manbox
+                                  ? const Color.fromARGB(
                                       255,
-                                      255,
-                                      255,
-                                      255,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      '다시 녹음하기',
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 10.0,
-                                ),
-                                Container(
-                                  child: Center(
-                                    child: Text(
-                                      '저장하기',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  height: 35,
-                                  width: 80.0,
-                                  decoration: BoxDecoration(
-                                    color: const Color.fromARGB(
-                                      255,
-                                      3,
-                                      201,
-                                      195,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                ),
-                              ],
+                                      230,
+                                      250,
+                                      249,
+                                    )
+                                  : null,
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          '직업',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
+                            child: Center(
+                              child: Text(
+                                _man,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    82,
+                                    82,
+                                    82,
+                                  ),
+                                  fontSize: ScreenUtil().setSp(
+                                    14,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            right: 10.0,
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            11,
                           ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _womanbox = !_womanbox;
+                              genderWoman();
+                              print(_womanbox);
+                            });
+                          },
                           child: Container(
-                            height: 30,
-                            width: width / 3.5,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: Colors.black,
+                            height: ScreenUtil().setHeight(
+                              48,
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "images/pen.png",
-                                ),
-                                const SizedBox(
-                                  width: 5.0,
-                                ),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: const Text(
-                                    '카테고리 변경하기',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 10.0,
-                                    ),
+                            width: ScreenUtil().setWidth(
+                              162,
+                            ),
+                            child: Center(
+                              child: Text(
+                                _woman,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    82,
+                                    82,
+                                    82,
+                                  ),
+                                  fontSize: ScreenUtil().setSp(
+                                    14,
                                   ),
                                 ),
-                              ],
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                              border: _womanbox
+                                  ? Border.all(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        3,
+                                        201,
+                                        195,
+                                      ),
+                                    )
+                                  : Border.all(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        229,
+                                        229,
+                                        229,
+                                      ),
+                                    ),
+                              borderRadius: BorderRadius.circular(8),
+                              color: _womanbox
+                                  ? const Color.fromARGB(
+                                      255,
+                                      230,
+                                      250,
+                                      249,
+                                    )
+                                  : null,
                             ),
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: ContainerWidgt(
-                      title: '승무원',
-                      width: width / 7.0,
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        20,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20.0),
-                    child: Text(
+                    const DescriptionContainer(
+                      title: "생년월일",
+                      titledescription: "19920-04-06",
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        20,
+                      ),
+                    ),
+                    const DescriptionContainer(
+                      title: "위치",
+                      titledescription: "서울시 강남구",
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        20,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(),
+                      child: Text(
+                        '음성메세지',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: ScreenUtil().setSp(
+                            16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        12,
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(
+                          255,
+                          245,
+                          245,
+                          245,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          12,
+                        ),
+                      ),
+                      height: ScreenUtil().setHeight(
+                        116,
+                      ),
+                      width: ScreenUtil().setHeight(
+                        335,
+                      ),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(
+                                255,
+                                250,
+                                250,
+                                250,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                12,
+                              ),
+                            ),
+                            height: ScreenUtil().setHeight(
+                              60,
+                            ),
+                            width: ScreenUtil().setHeight(
+                              335,
+                            ),
+                          ),
+                          Positioned(
+                            left: ScreenUtil().setWidth(
+                              20,
+                            ),
+                            top: ScreenUtil().setHeight(
+                              10,
+                            ),
+                            child: SvgPicture.asset(
+                              "image/mic.svg",
+                            ),
+                          ),
+                          Positioned(
+                            left: ScreenUtil().setWidth(
+                              70,
+                            ),
+                            top: ScreenUtil().setHeight(
+                              14,
+                            ),
+                            child: SvgPicture.asset(
+                              "image/radio.svg",
+                            ),
+                          ),
+                          Positioned(
+                            left: 256,
+                            top: 22,
+                            child: Row(
+                              children: [
+                                Text(
+                                  '8:00 ',
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      23,
+                                      23,
+                                      23,
+                                    ),
+                                    fontSize: ScreenUtil().setSp(
+                                      12,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  '/ 0:10',
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      64,
+                                      64,
+                                      64,
+                                    ),
+                                    fontSize: ScreenUtil().setSp(
+                                      12,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            top: ScreenUtil().setHeight(72),
+                            left: ScreenUtil().setWidth(
+                              86,
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: const Color.fromARGB(
+                                    225,
+                                    229,
+                                    229,
+                                    229,
+                                  ),
+                                ),
+                                color: const Color.fromARGB(
+                                  255,
+                                  255,
+                                  255,
+                                  255,
+                                ),
+                                borderRadius: BorderRadius.circular(
+                                  100,
+                                ),
+                              ),
+                              height: ScreenUtil().setHeight(
+                                32,
+                              ),
+                              width: ScreenUtil().setHeight(
+                                90,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '다시 녹음하기',
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      64,
+                                      64,
+                                      64,
+                                    ),
+                                    fontSize: ScreenUtil().setSp(
+                                      12,
+                                    ),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: ScreenUtil().setHeight(
+                              72,
+                            ),
+                            left: ScreenUtil().setWidth(
+                              184,
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(
+                                  255,
+                                  3,
+                                  201,
+                                  195,
+                                ),
+                                borderRadius: BorderRadius.circular(
+                                  100,
+                                ),
+                              ),
+                              height: ScreenUtil().setHeight(
+                                32,
+                              ),
+                              width: ScreenUtil().setHeight(
+                                66,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '저장하기',
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      255,
+                                      255,
+                                      255,
+                                    ),
+                                    fontSize: ScreenUtil().setSp(
+                                      12,
+                                    ),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        30,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '직업',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: ScreenUtil().setSp(
+                                16,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              right: ScreenUtil().setWidth(
+                                0,
+                              ),
+                            ),
+                            child: Container(
+                              height: ScreenUtil().setHeight(
+                                32,
+                              ),
+                              width: ScreenUtil().setWidth(
+                                120,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                  30,
+                                ),
+                                color: const Color.fromARGB(
+                                  255,
+                                  23,
+                                  23,
+                                  23,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SvgPicture.asset(
+                                    "image/pen.svg",
+                                  ),
+                                  SizedBox(
+                                    width: ScreenUtil().setWidth(
+                                      5,
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Text(
+                                      '카테고리 변경하기',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: ScreenUtil().setSp(
+                                          12,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(20),
+                    ),
+                    Text(
                       '언어',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(
+                          16,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: ContainerWidgt(
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        10,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        ContainerWidgt(
                           color: const Color.fromARGB(
                             255,
                             250,
                             250,
                             250,
                           ),
-                          title: '한국어',
-                          width: width / 6.0,
+                          title: '',
+                          width: ScreenUtil().setWidth(
+                            82,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                          image: "image/language/korea.png",
                         ),
-                      ),
-                      const SizedBox(
-                        width: 10.0,
-                      ),
-                      ContainerWidgt(
-                        color: const Color.fromARGB(
-                          255,
-                          250,
-                          250,
-                          250,
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
                         ),
-                        title: '불어',
-                        width: width / 6.0,
-                      ),
-                      const SizedBox(
-                        width: 10.0,
-                      ),
-                      ContainerWidgt(
-                        color: const Color.fromARGB(
-                          255,
-                          250,
-                          250,
-                          250,
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '',
+                          image: "image/language/blu.png",
+                          width: ScreenUtil().setWidth(
+                            70,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
                         ),
-                        title: '영어',
-                        width: width / 6.0,
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '',
+                          image: "image/language/egg.png",
+                          width: ScreenUtil().setWidth(
+                            70,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        20,
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20.0),
-                    child: Text(
+                    ),
+                    Text(
                       '관심사',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(
+                          16,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: ContainerWidgt(
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        10,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(),
+                          child: ContainerWidgt(
+                            color: const Color.fromARGB(
+                              255,
+                              250,
+                              250,
+                              250,
+                            ),
+                            title: '',
+                            image: "image/book.png",
+                            width: ScreenUtil().setWidth(
+                              70,
+                            ),
+                            hight: ScreenUtil().setHeight(
+                              36,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        ContainerWidgt(
                           color: const Color.fromARGB(
                             255,
                             250,
                             250,
                             250,
                           ),
-                          title: '공부',
-                          width: width / 6.0,
+                          title: '',
+                          width: ScreenUtil().setWidth(
+                            70,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                          image: "image/game.png",
                         ),
-                      ),
-                      const SizedBox(
-                        width: 10.0,
-                      ),
-                      ContainerWidgt(
-                        color: const Color.fromARGB(
-                          255,
-                          250,
-                          250,
-                          250,
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
                         ),
-                        title: '게임',
-                        width: width / 6.0,
-                      ),
-                      const SizedBox(
-                        width: 10.0,
-                      ),
-                      ContainerWidgt(
-                        color: const Color.fromARGB(
-                          255,
-                          250,
-                          250,
-                          250,
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '',
+                          image: "image/dog.png",
+                          width: ScreenUtil().setWidth(
+                            70,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
                         ),
-                        title: '동물',
-                        width: width / 6.0,
-                      ),
-                      const SizedBox(
-                        width: 10.0,
-                      ),
-                      ContainerWidgt(
-                        color: const Color.fromARGB(
-                          255,
-                          250,
-                          250,
-                          250,
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
                         ),
-                        title: '음식',
-                        width: width / 6.0,
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '',
+                          width: ScreenUtil().setWidth(
+                            70,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                          image: "image/ummsic.png",
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        20,
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20.0),
-                    child: Text(
+                    ),
+                    Text(
                       '이상형',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(
+                          16,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: ContainerWidgt(
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        10,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        ContainerWidgt(
                           color: const Color.fromARGB(
                             255,
                             250,
@@ -652,41 +902,242 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                           ),
                           title: '이상형',
-                          width: width / 6.0,
+                          width: ScreenUtil().setWidth(
+                            65,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '이상형',
+                          width: ScreenUtil().setWidth(
+                            65,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '이상형',
+                          width: ScreenUtil().setWidth(
+                            65,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        20,
+                      ),
+                    ),
+                    Text(
+                      '취미',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(
+                          16,
                         ),
                       ),
-                      const SizedBox(
-                        width: 10.0,
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        10,
                       ),
-                      ContainerWidgt(
-                        color: const Color.fromARGB(
-                          255,
-                          250,
-                          250,
-                          250,
+                    ),
+                    Row(
+                      children: [
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '',
+                          width: ScreenUtil().setWidth(
+                            70,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                          image: "image/golf.png",
                         ),
-                        title: '이상형',
-                        width: width / 6.0,
-                      ),
-                      const SizedBox(
-                        width: 10.0,
-                      ),
-                      ContainerWidgt(
-                        color: const Color.fromARGB(
-                          255,
-                          250,
-                          250,
-                          250,
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
                         ),
-                        title: '이상형',
-                        width: width / 6.0,
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '',
+                          image: "image/soccer.png",
+                          width: ScreenUtil().setWidth(
+                            70,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '',
+                          image: "image/xpsltm.png",
+                          width: ScreenUtil().setWidth(
+                            82,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '',
+                          image: "image/runrun.png",
+                          width: ScreenUtil().setWidth(
+                            70,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        20,
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    Text(
+                      '성격',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(
+                          16,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        10,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '성격',
+                          width: ScreenUtil().setWidth(
+                            53,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '성격',
+                          width: ScreenUtil().setWidth(
+                            53,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(
+                            8,
+                          ),
+                        ),
+                        ContainerWidgt(
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            250,
+                            250,
+                          ),
+                          title: '성격',
+                          width: ScreenUtil().setWidth(
+                            53,
+                          ),
+                          hight: ScreenUtil().setHeight(
+                            36,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -697,6 +1148,7 @@ class ContainerWidgt extends StatelessWidget {
   final String? image;
   final String title;
   final double width;
+  final double? hight;
   final VoidCallback? onTap;
   final Color? color;
   final Border? decoration;
@@ -709,6 +1161,7 @@ class ContainerWidgt extends StatelessWidget {
     this.onTap,
     this.color,
     this.decoration,
+    this.hight,
   });
 
   @override
@@ -716,7 +1169,7 @@ class ContainerWidgt extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 30,
+        height: hight,
         width: width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
@@ -731,8 +1184,8 @@ class ContainerWidgt extends StatelessWidget {
             image != null
                 ? Image.asset(
                     image!,
-                    width: 20,
-                    height: 30,
+                    width: 50,
+                    height: 40,
                   )
                 : const Text(''),
             const SizedBox(
@@ -771,7 +1224,7 @@ class DescriptionContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 20.0),
+          padding: const EdgeInsets.only(),
           child: Text(
             title,
             style: const TextStyle(
@@ -780,13 +1233,19 @@ class DescriptionContainer extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: ScreenUtil().setHeight(
+            8,
+          ),
         ),
         Center(
           child: Container(
-            width: width / 1.1,
-            height: 50,
+            width: ScreenUtil().setWidth(
+              335,
+            ),
+            height: ScreenUtil().setHeight(
+              48,
+            ),
             decoration: BoxDecoration(
               color: const Color.fromARGB(
                 255,
@@ -795,14 +1254,33 @@ class DescriptionContainer extends StatelessWidget {
                 250,
               ),
               border: Border.all(
-                color: Colors.grey,
+                color: const Color.fromARGB(
+                  255,
+                  229,
+                  229,
+                  229,
+                ),
               ),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(
+                8,
+              ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.only(
+                top: ScreenUtil().setHeight(
+                  14,
+                ),
+                left: ScreenUtil().setWidth(
+                  16,
+                ),
+              ),
               child: Text(
                 titledescription,
+                style: TextStyle(
+                  fontSize: ScreenUtil().setSp(
+                    14,
+                  ),
+                ),
               ),
             ),
           ),

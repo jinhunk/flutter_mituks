@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:flutter_mituks/chattingpage/view/detailprofile.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BarPageOne extends StatefulWidget {
   const BarPageOne({super.key});
@@ -11,13 +12,13 @@ class BarPageOne extends StatefulWidget {
 
 class _BarPageOneState extends State<BarPageOne> {
   static List<String> animalImagePath = [
-    'images/Rectanglemain.png',
-    'images/Rectanglemain.png',
-    'images/Rectanglemain.png',
-    'images/Rectanglemain.png',
-    'images/Rectanglemain.png',
-    'images/Rectanglemain.png',
-    'images/Rectanglemain.png',
+    'image/person/personone.png',
+    'image/person/persontwo.png',
+    'image/person/personthree.png',
+    'image/person/personfour.png',
+    'image/person/personfive.png',
+    'image/person/personsix.png',
+    'image/person/personsix.png',
   ];
   static List<String> titleList = [
     "김영아,23세 ",
@@ -48,23 +49,23 @@ class _BarPageOneState extends State<BarPageOne> {
     "영어",
   ];
   static List<String> Level = [
-    "images/level/crown-illust.png",
-    "images/level/crown-illust.png",
-    "images/level/crown-illust.png",
-    "images/level/crown-illust.png",
-    "images/level/crown-illust.png",
-    "images/level/crown-illust.png",
-    "images/level/crown-illust.png",
+    "image/level/bronz.svg",
+    "image/level/silver.svg",
+    "image/level/silver.svg",
+    "image/level/emerald.svg",
+    "image/level/gold.svg",
+    "image/level/gold.svg",
+    "image/level/gold.svg",
   ];
 
   static List<String> gender = [
-    "images/gender/female.png",
-    "images/gender/male.png",
-    "images/gender/female.png",
-    "images/gender/male.png",
-    "images/gender/female.png",
-    "images/gender/female.png",
-    "images/gender/female.png",
+    "image/gender/woman.svg",
+    "image/gender/male.svg",
+    "image/gender/woman.svg",
+    "image/gender/male.svg",
+    "image/gender/woman.svg",
+    "image/gender/woman.svg",
+    "image/gender/woman.svg",
   ];
 
   int count = 5;
@@ -74,106 +75,178 @@ class _BarPageOneState extends State<BarPageOne> {
     double height = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0),
+      padding: EdgeInsets.only(
+        left: ScreenUtil().setWidth(
+          20,
+        ),
+        top: ScreenUtil().setHeight(
+          8,
+        ),
+        right: ScreenUtil().setWidth(
+          20,
+        ),
+      ),
       child: Container(
         child: ListView.separated(
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                // vertical: 20,
-              ),
+                  // horizontal: 20,
+                  // vertical: 20,
+                  ),
               child: Container(
-                height: 90,
+                height: ScreenUtil().setHeight(
+                  96,
+                ),
+                width: ScreenUtil().setWidth(
+                  335,
+                ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
+                  color: const Color.fromARGB(
+                    255,
+                    255,
+                    255,
+                    255,
+                  ),
                 ),
                 child: Stack(
                   children: [
                     Positioned(
-                      left: 20,
-                      top: 15,
-                      child: Image.asset(
-                        animalImagePath[index],
+                      left: ScreenUtil().setWidth(
+                        16,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        16,
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context) =>
+                                  const DetailProfilePage(),
+                            ),
+                          );
+                        },
+                        child: Image.asset(
+                          animalImagePath[index],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        2,
                       ),
                     ),
                     Positioned(
-                      left: 130,
-                      top: 20,
+                      left: ScreenUtil().setWidth(
+                        122,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        26,
+                      ),
                       child: Text(
                         titleList[index],
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                        ),
-                      ),
-                    ),
-                    const Positioned(
-                      left: 100,
-                      top: 52,
-                      child: Icon(
-                        Icons.location_on,
-                        size: 15,
-                      ),
-                    ),
-                    Positioned(
-                      left: 120,
-                      top: 52,
-                      child: Text(
-                        region[index],
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 210,
-                      top: 52,
-                      child: Text(
-                        language[index],
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 197,
-                      top: 53,
-                      child: Image.asset(
-                        "images/globe-light.png",
-                        color: Colors.black,
-                      ),
-                    ),
-                    Positioned(
-                      left: 290,
-                      top: 20,
-                      child: Container(
-                        height: 40,
-                        width: width / 9.0,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 207, 246, 242),
-                          borderRadius: BorderRadius.circular(
-                            30,
+                          fontSize: ScreenUtil().setSp(
+                            16,
                           ),
                         ),
-                        child: Image.asset(
-                          "images/icon-chat-bubble-mono.png",
+                      ),
+                    ),
+                    Positioned(
+                      left: ScreenUtil().setWidth(
+                        96,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        57,
+                      ),
+                      child: SvgPicture.asset(
+                        "image/map.svg",
+                      ),
+                    ),
+                    Positioned(
+                      left: ScreenUtil().setWidth(
+                        110,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        55,
+                      ),
+                      child: Text(
+                        region[index],
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: ScreenUtil().setSp(
+                            12,
+                          ),
                         ),
+                      ),
+                    ),
+                    Positioned(
+                      left: ScreenUtil().setWidth(
+                        196,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        56,
+                      ),
+                      child: Text(
+                        language[index],
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: ScreenUtil().setSp(
+                            12,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: ScreenUtil().setWidth(
+                        182,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        57,
+                      ),
+                      child: SvgPicture.asset(
+                        "image/globe-light.svg",
+                        color: const Color.fromARGB(
+                          255,
+                          82,
+                          82,
+                          82,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: ScreenUtil().setWidth(
+                        287,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        32,
+                      ),
+                      child: SvgPicture.asset(
+                        "image/message.svg",
                       ),
                     ),
                     //로그인여부 아이콘
                     Positioned(
-                      top: 60,
-                      left: 70,
+                      top: ScreenUtil().setHeight(
+                        62,
+                      ),
+                      left: ScreenUtil().setWidth(
+                        61,
+                      ),
                       child: Container(
-                        width: width / 25.0,
-                        height: 15,
+                        width: ScreenUtil().setWidth(
+                          14,
+                        ),
+                        height: ScreenUtil().setHeight(
+                          14,
+                        ),
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 122, 224, 125),
                           border: Border.all(
@@ -184,17 +257,58 @@ class _BarPageOneState extends State<BarPageOne> {
                         ),
                       ),
                     ),
+                    if (index == 1)
+                      Positioned(
+                        top: ScreenUtil().setHeight(
+                          62,
+                        ),
+                        left: ScreenUtil().setWidth(
+                          61,
+                        ),
+                        child: Container(
+                          width: ScreenUtil().setWidth(
+                            14,
+                          ),
+                          height: ScreenUtil().setHeight(
+                            14,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(
+                              255,
+                              212,
+                              212,
+                              212,
+                            ),
+                            border: Border.all(
+                              width: 2,
+                              color: Colors.white,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              30,
+                            ),
+                          ),
+                        ),
+                      ),
+
                     //Level 배찌
                     Positioned(
-                      top: 18,
-                      left: 100,
+                      left: ScreenUtil().setWidth(
+                        96,
+                      ),
+                      top: ScreenUtil().setHeight(
+                        25,
+                      ),
                       child: Images(
                         image: Level[index],
                       ),
                     ),
                     Positioned(
-                      top: 23,
-                      left: 225,
+                      top: ScreenUtil().setHeight(
+                        27,
+                      ),
+                      left: ScreenUtil().setWidth(
+                        214,
+                      ),
                       child: Images(
                         image: gender[index],
                       ),
@@ -207,8 +321,10 @@ class _BarPageOneState extends State<BarPageOne> {
           itemCount: animalImagePath.length,
           //높이조절
           separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(
-              height: 20,
+            return SizedBox(
+              height: ScreenUtil().setHeight(
+                12,
+              ),
             );
           },
         ),
@@ -228,7 +344,7 @@ class Images extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return image != null
-        ? Image.asset(
+        ? SvgPicture.asset(
             image!,
           )
         : const Text('');

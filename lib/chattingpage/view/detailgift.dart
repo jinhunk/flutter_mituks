@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DetailGiftPage extends StatefulWidget {
   const DetailGiftPage({super.key});
@@ -29,9 +31,8 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: const Icon(
-            Icons.arrow_back_ios_rounded,
-            color: Colors.grey,
+          child: SvgPicture.asset(
+            "image/Ic_toucharea.svg",
           ),
         ),
         elevation: 0.0,
@@ -57,7 +58,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                   });
                 },
                 child: IconContainer(
-                  image: "images/coffee.png",
+                  image: "image/coffee.svg",
                   title: "커피",
                   description: "1 다이아",
                   decoration: chack
@@ -68,7 +69,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -85,7 +86,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                         ),
                 ),
               ),
@@ -97,7 +98,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                   print(cake);
                 },
                 child: IconContainer(
-                  image: "images/cake.png",
+                  image: "image/cake.svg",
                   decoration: cake
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -106,7 +107,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -123,7 +124,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                         ),
                   title: "케이크",
                   description: "5 다이아",
@@ -136,7 +137,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                   });
                 },
                 child: IconContainer(
-                  image: "images/rose.png",
+                  image: "image/rose.svg",
                   decoration: rose
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -145,7 +146,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -162,16 +163,17 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
+                          borderRadius: BorderRadius.circular(100)),
                   title: "장미",
                   description: "10 다이아",
                 ),
               ),
             ],
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: ScreenUtil().setHeight(
+              24,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -191,7 +193,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -208,9 +210,9 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                         ),
-                  image: "images/bouquet.png",
+                  image: "image/bouquet.svg",
                   title: "꽃다발",
                   description: "50 다이아",
                 ),
@@ -230,7 +232,9 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -247,9 +251,9 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                         ),
-                  image: "images/ring.png",
+                  image: "image/ring.svg",
                   title: "반지",
                   description: "50 다이아",
                 ),
@@ -269,7 +273,9 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -286,17 +292,19 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                         ),
-                  image: "images/game-icons_heart-necklace.png",
+                  image: "image/heart-necklace.svg",
                   title: "목걸이",
                   description: "500 다이아",
                 ),
               ),
             ],
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: ScreenUtil().setHeight(
+              24,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -308,7 +316,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                   });
                 },
                 child: IconContainer(
-                  image: "images/noto-v1_handbag.png",
+                  image: "image/handbag.svg",
                   decoration: bag
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -317,7 +325,9 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -334,10 +344,12 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
                         ),
                   title: "가방",
-                  description: "1000\n다이아",
+                  description: "1,000\n 다이아",
                 ),
               ),
               GestureDetector(
@@ -347,7 +359,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                   });
                 },
                 child: IconContainer(
-                  image: "images/fluent-emoji-flat_racing-car.png",
+                  image: "image/car.svg",
                   decoration: car
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -356,7 +368,9 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -373,10 +387,10 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                         ),
                   title: "외제차",
-                  description: "5000\n다이아",
+                  description: "5,000\n 다이아",
                 ),
               ),
               GestureDetector(
@@ -386,7 +400,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                   });
                 },
                 child: IconContainer(
-                  image: "images/noto_house.png",
+                  image: "image/home.svg",
                   decoration: home
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -395,7 +409,9 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             250,
                             249,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
                           border: Border.all(
                             color: const Color.fromARGB(
                               255,
@@ -412,10 +428,10 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                             245,
                             245,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(100),
                         ),
                   title: "집",
-                  description: " 999\n다이아",
+                  description: "9,999\n 다이아",
                 ),
               ),
             ],
@@ -442,7 +458,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                       201,
                       195,
                     ),
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(100),
                   )
                 : BoxDecoration(
                     color: const Color.fromARGB(
@@ -451,7 +467,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                       238,
                       236,
                     ),
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(100),
                   ),
             child: const Center(
               child: Text(
@@ -496,28 +512,38 @@ class IconContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
+          height: ScreenUtil().setHeight(
+            64,
+          ),
+          width: ScreenUtil().setWidth(
+            64,
+          ),
           decoration: decoration,
-          width: width / 7.0,
-          height: 60,
-          child: image != null
-              ? Image.asset(
-                  image!,
-                  width: 20,
-                  height: 30,
-                )
-              : const Text(''),
+          child: Stack(
+            children: [
+              image != null
+                  ? Center(
+                      child: SvgPicture.asset(
+                        image!,
+                      ),
+                    )
+                  : const Text(''),
+            ],
+          ),
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: ScreenUtil().setHeight(
+            6,
+          ),
         ),
         Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.black,
+            fontSize: ScreenUtil().setSp(
+              13,
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 5,
         ),
         Text(
           description,
