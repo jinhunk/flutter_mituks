@@ -58,23 +58,16 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
 
 // 프로필 바텀시트
   void _showModalBottomSheet() {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     showModalBottomSheet(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
       context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          20,
+        ),
+      ),
       builder: (BuildContext context) {
         return Stack(
           children: [
-            // Image.asset("lib/flutter_img.png", fit: BoxFit.fill,),
-            // ImageFiltered(
-            //   imageFilter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            //   child: Container(
-            //     color: Colors.black.withOpacity(0),
-            //   )
-            // ),
             Container(
               height: ScreenUtil().setHeight(
                 404,
@@ -88,7 +81,12 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
                   sigmaY: 5,
                 ),
                 child: Container(
-                  color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(
+                      20,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -569,36 +567,81 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
                       201,
                       195,
                     )
-                  : Colors.grey,
+                  : const Color.fromARGB(
+                      255,
+                      212,
+                      212,
+                      212,
+                    ),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              "image/message-bubble.svg",
-              color: _selectedIndex == 1
-                  ? const Color.fromARGB(
-                      255,
-                      3,
-                      201,
-                      195,
-                    )
-                  : Colors.grey,
+            icon: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                SvgPicture.asset(
+                  "image/message-bubble.svg",
+                  color: _selectedIndex == 1
+                      ? const Color.fromARGB(
+                          255,
+                          3,
+                          201,
+                          195,
+                        )
+                      : const Color.fromARGB(
+                          255,
+                          212,
+                          212,
+                          212,
+                        ),
+                ),
+                Positioned(
+                  bottom: ScreenUtil().setHeight(
+                    17,
+                  ),
+                  left: ScreenUtil().setWidth(
+                    17,
+                  ),
+                  child: Container(
+                    width: ScreenUtil().setWidth(
+                      8,
+                    ),
+                    height: ScreenUtil().setHeight(
+                      8,
+                    ),
+                    decoration: _selectedIndex == 1
+                        ? BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                            color: const Color.fromARGB(
+                              255,
+                              255,
+                              105,
+                              105,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              100,
+                            ),
+                          )
+                        : null,
+                  ),
+                ),
+              ],
             ),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              "image/bottomdiamond.svg",
-              color: _selectedIndex == 2
-                  ? const Color.fromARGB(
-                      255,
-                      3,
-                      201,
-                      195,
-                    )
-                  : Colors.grey,
-            ),
+            icon: SvgPicture.asset("image/bottomdiamond.svg",
+                color: _selectedIndex == 2
+                    ? const Color.fromARGB(
+                        255,
+                        3,
+                        201,
+                        195,
+                      )
+                    : null),
             label: '',
           ),
           BottomNavigationBarItem(
@@ -611,7 +654,12 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
                       201,
                       195,
                     )
-                  : Colors.grey,
+                  : const Color.fromARGB(
+                      255,
+                      212,
+                      212,
+                      212,
+                    ),
             ),
             label: '',
           ),

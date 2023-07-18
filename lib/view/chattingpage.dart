@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_mituks/chattingpage/view/detailprofile.dart';
+import 'package:flutter_mituks/profile/manprofile/diamondpage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -17,19 +19,19 @@ class _ChattingPageState extends State<ChattingPage> {
     'image/Rectangleone.png',
     'image/Rectangletwo.png',
     'image/Rectanglethree.png',
+    'image/Rectanglesix.png',
     'image/Rectanglefour.png',
-    'image/Rectanglefive.png',
     'image/Rectanglesix.png',
   ];
 
   static List<String> titleList = [
-    "김영아",
-    "손정호",
-    "신주아",
-    "김병진",
-    "송연아",
-    "송연아",
-    "송연아",
+    "김영철",
+    "한서범",
+    "손석구",
+    "이창섭",
+    "김현식",
+    "송강준",
+    "심수한",
   ];
 
   static List<String> language = [
@@ -61,16 +63,35 @@ class _ChattingPageState extends State<ChattingPage> {
     "안녕하세요, 오늘 뭐해요?",
   ];
 
+  static List<String> region = [
+    "서울시 서초구",
+    "서울시 서초구",
+    "서울시 서초구",
+    "서울시 서초구",
+    "서울시 서초구",
+    "서울시 서초구",
+    "서울시 서초구",
+  ];
+
   static List<String> Level = [
     "image/level/bronz.svg",
     "image/level/silver.svg",
-    "image/level/silver.svg",
+    "image/level/gold.svg",
+    "image/level/ruby.svg",
     "image/level/emerald.svg",
-    "image/level/gold.svg",
-    "image/level/gold.svg",
+    "image/level/sapphire.svg",
     "image/level/gold.svg",
   ];
 
+  static List<String> gender = [
+    "image/gender/female.svg",
+    "image/gender/man.svg",
+    "image/gender/female.svg",
+    "image/gender/man.svg",
+    "image/gender/female.svg",
+    "image/gender/female.svg",
+    "image/gender/female.svg",
+  ];
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -78,42 +99,44 @@ class _ChattingPageState extends State<ChattingPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: SvgPicture.asset(
-          "image/backs.svg",
-        ),
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Text(
           '메세지',
           style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w700,
             fontSize: ScreenUtil().setSp(
               18,
             ),
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(
-          top: 20,
+        padding: EdgeInsets.only(
+          top: ScreenUtil().setHeight(
+            12,
+          ),
         ),
         child: ListView.separated(
-          itemBuilder: (BuildContext context, int inedx) {
+          itemBuilder: (BuildContext context, int index) {
             return MessgeCard(
-              image: animalImagePath[inedx],
-              title: titleList[inedx],
-              description: description[inedx],
-              language: language[inedx],
-              count: '카운트',
-              time: '14:22',
-              imagelevel: Level[inedx],
+              levelimage: Level[index],
+              image: animalImagePath[index],
+              title: titleList[index],
+              region: region[index],
+              language: language[index],
+              genderimage: gender[index],
+              descriptionp: description[index],
             );
           },
           itemCount: animalImagePath.length,
           separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(
-              height: 20,
+            return SizedBox(
+              height: ScreenUtil().setHeight(
+                14,
+              ),
             );
           },
         ),
@@ -124,22 +147,22 @@ class _ChattingPageState extends State<ChattingPage> {
 
 class MessgeCard extends StatelessWidget {
   final String image;
-  final String imagelevel;
+  final String levelimage;
+  final String genderimage;
   final String title;
-  final String time;
   final String language;
-  final String count;
-  final String description;
+  final String region;
+  final String descriptionp;
 
   const MessgeCard({
     super.key,
     required this.image,
     required this.title,
-    required this.description,
+    required this.region,
     required this.language,
-    required this.time,
-    required this.count,
-    required this.imagelevel,
+    required this.levelimage,
+    required this.genderimage,
+    required this.descriptionp,
   });
 
   @override
@@ -153,60 +176,125 @@ class MessgeCard extends StatelessWidget {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 45,
-                      left: 50,
-                      child: Container(
-                        width: width / 25.0,
-                        height: 15,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 122, 224, 125),
-                          border: Border.all(
-                            width: 2,
-                            color: Colors.white,
+                padding: EdgeInsets.only(
+                  left: ScreenUtil().setWidth(
+                    20,
+                  ),
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const DetailProfilePage(),
+                      ),
+                    );
+                  },
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Container(
+                        child: image != null
+                            ? Image.asset(
+                                image!,
+                                fit: BoxFit.cover,
+                              )
+                            : const Text(''),
+                      ),
+                      Positioned(
+                        top: ScreenUtil().setHeight(
+                          40,
+                        ),
+                        left: ScreenUtil().setWidth(
+                          50,
+                        ),
+                        child: Container(
+                          width: ScreenUtil().setWidth(
+                            14,
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          height: ScreenUtil().setHeight(
+                            14,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 122, 224, 125),
+                            border: Border.all(
+                              width: 2,
+                              color: Colors.white,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              30,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: ScreenUtil().setWidth(
+                  16,
+                ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SvgPicture.asset(
-                        imagelevel,
-                      ),
-                      const SizedBox(
-                        width: 5.0,
-                      ),
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      levelimage != null
+                          ? SvgPicture.asset(
+                              levelimage!,
+                              // width: 20,
+                              // height: 30,
+                              fit: BoxFit.cover,
+                            )
+                          : const Text(''),
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          2,
                         ),
                       ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Container(
-                        width: width / 6.5,
-                        height: 20,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 233, 230, 230),
-                          borderRadius: BorderRadius.circular(
-                            20,
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: ScreenUtil().setHeight(
+                            2,
                           ),
+                        ),
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            fontSize: ScreenUtil().setSp(
+                              16,
+                            ),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          6,
+                        ),
+                      ),
+                      //피그마 남여이미지
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(
+                            255,
+                            245,
+                            245,
+                            245,
+                          ),
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
+                        ),
+                        width: ScreenUtil().setWidth(
+                          58,
+                        ),
+                        height: ScreenUtil().setHeight(
+                          20,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -215,55 +303,131 @@ class MessgeCard extends StatelessWidget {
                               "image/globe-light.svg",
                               color: Colors.black,
                             ),
-                            const SizedBox(
-                              width: 5.0,
+                            SizedBox(
+                              width: ScreenUtil().setWidth(
+                                2,
+                              ),
                             ),
                             Text(
                               language,
-                              style: const TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(
+                                  12,
+                                ),
+                                color: const Color.fromARGB(
+                                  255,
+                                  82,
+                                  82,
+                                  82,
+                                ),
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 70,
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          93,
+                        ),
                       ),
-                      Text(time),
+                      Text(
+                        '14:22',
+                        style: TextStyle(
+                          color: const Color.fromARGB(
+                            255,
+                            163,
+                            163,
+                            163,
+                          ),
+                          fontSize: ScreenUtil().setSp(
+                            12,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: ScreenUtil().setHeight(
+                      4,
+                    ),
                   ),
                   Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        description,
+                        descriptionp,
+                        style: TextStyle(
+                          color: const Color.fromARGB(
+                            255,
+                            64,
+                            64,
+                            64,
+                          ),
+                          fontSize: ScreenUtil().setSp(
+                            14,
+                          ),
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                      const SizedBox(
-                        width: 87,
+                      SizedBox(
+                        width: ScreenUtil().setWidth(
+                          89,
+                        ),
                       ),
-                      Text(
-                        count,
-                        style: const TextStyle(
-                          color: Colors.teal,
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(
+                            255,
+                            3,
+                            201,
+                            195,
+                          ),
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
+                        ),
+                        width: ScreenUtil().setWidth(24),
+                        height: ScreenUtil().setHeight(
+                          24,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "2",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: ScreenUtil().setSp(
+                                14,
+                              ),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ],
-              )
+              ),
             ],
           ),
-          const SizedBox(
-            height: 15,
+          SizedBox(
+            height: ScreenUtil().setHeight(
+              12,
+            ),
           ),
           Container(
-            color: const Color.fromARGB(255, 232, 229, 229),
-            width: width / 1.0,
-            height: 1,
+            color: const Color.fromARGB(
+              255,
+              245,
+              245,
+              245,
+            ),
+            width: ScreenUtil().setWidth(
+              375,
+            ),
+            height: ScreenUtil().setHeight(
+              1,
+            ),
           ),
         ],
       ),

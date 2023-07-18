@@ -148,6 +148,35 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                       ),
                     ],
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: ScreenUtil().setHeight(
+                        2,
+                      ),
+                      right: ScreenUtil().setWidth(
+                        20,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          '14:30',
+                          style: TextStyle(
+                            color: const Color.fromARGB(
+                              255,
+                              163,
+                              163,
+                              163,
+                            ),
+                            fontSize: ScreenUtil().setSp(
+                              11,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(
                     height: ScreenUtil().setHeight(
                       22,
@@ -185,6 +214,34 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                   color: Colors.black,
                                 ),
                               ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: ScreenUtil().setHeight(
+                        2,
+                      ),
+                      left: ScreenUtil().setWidth(
+                        125,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '읽음',
+                          style: TextStyle(
+                            color: const Color.fromARGB(
+                              255,
+                              163,
+                              163,
+                              163,
+                            ),
+                            fontSize: ScreenUtil().setSp(
+                              11,
                             ),
                           ),
                         ),
@@ -243,7 +300,13 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                                 sigmaY: 10,
                                               ),
                                               child: Container(
-                                                color: Colors.white,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    20,
+                                                  ),
+                                                ),
                                               ),
                                             ),
                                             Padding(
@@ -336,7 +399,13 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                                     ),
                                                   ),
                                                   //내 다이아 보유개수
-                                                  Center(
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                      left:
+                                                          ScreenUtil().setWidth(
+                                                        80,
+                                                      ),
+                                                    ),
                                                     child: Text(
                                                       '다이아몬드 보유 갯수: 200개',
                                                       style: TextStyle(
@@ -347,6 +416,7 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                                       ),
                                                     ),
                                                   ),
+
                                                   SizedBox(
                                                     height:
                                                         ScreenUtil().setHeight(
@@ -534,13 +604,10 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                width: ScreenUtil().setWidth(20),
-                              ),
                               Padding(
                                 padding: EdgeInsets.only(
-                                  right: ScreenUtil().setWidth(
-                                    3,
+                                  left: ScreenUtil().setWidth(
+                                    17,
                                   ),
                                 ),
                                 child: Text(
@@ -552,14 +619,18 @@ class _DatailChattingPageState extends State<DatailChattingPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                width: ScreenUtil().setWidth(20),
-                              ),
-                              Text(
-                                '선물하기',
-                                style: TextStyle(
-                                  fontSize: ScreenUtil().setSp(
-                                    12,
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: ScreenUtil().setWidth(
+                                    27,
+                                  ),
+                                ),
+                                child: Text(
+                                  '선물하기',
+                                  style: TextStyle(
+                                    fontSize: ScreenUtil().setSp(
+                                      12,
+                                    ),
                                   ),
                                 ),
                               ),

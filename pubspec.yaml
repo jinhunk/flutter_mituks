@@ -83,6 +83,8 @@ flutter:
     - image/person/
     - image/level/
     - image/gender/
+    - image/bank/
+    - image/seetinglogo/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

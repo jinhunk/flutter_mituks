@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mituks/chattingpage/view/detailprofile.dart';
+import 'package:flutter_mituks/profile/manprofile/diamondpage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -99,14 +100,6 @@ class _CashPageState extends State<CashPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: SvgPicture.asset(
-            "image/Ic_toucharea.svg",
-          ),
-        ),
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Text(
@@ -287,6 +280,15 @@ class MessgeCard extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const DiamondPage(),
+                            ),
+                          );
+                        },
                         child: Container(
                           height: ScreenUtil().setHeight(
                             40,
@@ -364,7 +366,7 @@ class MessgeCard extends StatelessWidget {
               255,
               245,
               245,
-              2245,
+              245,
             ),
             width: ScreenUtil().setWidth(
               375,

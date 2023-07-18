@@ -27,6 +27,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
@@ -61,6 +62,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                   image: "image/coffee.svg",
                   title: "커피",
                   description: "1 다이아",
+                  chackimage: chack ? "image/check-circle.svg" : null,
                   decoration: chack
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -99,6 +101,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                 },
                 child: IconContainer(
                   image: "image/cake.svg",
+                  chackimage: cake ? "image/check-circle.svg" : null,
                   decoration: cake
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -138,6 +141,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                 },
                 child: IconContainer(
                   image: "image/rose.svg",
+                  chackimage: rose ? "image/check-circle.svg" : null,
                   decoration: rose
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -213,6 +217,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                           borderRadius: BorderRadius.circular(100),
                         ),
                   image: "image/bouquet.svg",
+                  chackimage: bouquet ? "image/check-circle.svg" : null,
                   title: "꽃다발",
                   description: "50 다이아",
                 ),
@@ -254,6 +259,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                           borderRadius: BorderRadius.circular(100),
                         ),
                   image: "image/ring.svg",
+                  chackimage: ring ? "image/check-circle.svg" : null,
                   title: "반지",
                   description: "50 다이아",
                 ),
@@ -295,6 +301,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                           borderRadius: BorderRadius.circular(100),
                         ),
                   image: "image/heart-necklace.svg",
+                  chackimage: chain ? "image/check-circle.svg" : null,
                   title: "목걸이",
                   description: "500 다이아",
                 ),
@@ -317,6 +324,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                 },
                 child: IconContainer(
                   image: "image/handbag.svg",
+                  chackimage: bag ? "image/check-circle.svg" : null,
                   decoration: bag
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -360,6 +368,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                 },
                 child: IconContainer(
                   image: "image/car.svg",
+                  chackimage: car ? "image/check-circle.svg" : null,
                   decoration: car
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -401,6 +410,7 @@ class _DetailGiftPageState extends State<DetailGiftPage> {
                 },
                 child: IconContainer(
                   image: "image/home.svg",
+                  chackimage: home ? "image/check-circle.svg" : null,
                   decoration: home
                       ? BoxDecoration(
                           color: const Color.fromARGB(
@@ -493,6 +503,7 @@ class IconContainer extends StatelessWidget {
   final String description;
   final String? descriptiontwo;
   final Decoration? decoration;
+  final String? chackimage;
   const IconContainer({
     super.key,
     this.icon,
@@ -501,6 +512,7 @@ class IconContainer extends StatelessWidget {
     this.descriptiontwo,
     this.image,
     this.decoration,
+    this.chackimage,
   });
 
   @override
@@ -520,12 +532,18 @@ class IconContainer extends StatelessWidget {
           ),
           decoration: decoration,
           child: Stack(
+            clipBehavior: Clip.none,
             children: [
               image != null
                   ? Center(
                       child: SvgPicture.asset(
                         image!,
                       ),
+                    )
+                  : const Text(''),
+              chackimage != null
+                  ? SvgPicture.asset(
+                      chackimage!,
                     )
                   : const Text(''),
             ],

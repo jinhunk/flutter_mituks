@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mituks/loginpage.dart';
+import 'package:flutter_mituks/splash.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
             // is not restarted.
             primarySwatch: Colors.blue,
           ),
-          home: const LoginPage(),
+          home: const SplashScreen(),
         );
       },
     );

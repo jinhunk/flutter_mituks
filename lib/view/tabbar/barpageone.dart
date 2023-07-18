@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mituks/chattingpage/view/detailchatting.dart';
 import 'package:flutter_mituks/chattingpage/view/detailprofile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -59,13 +60,13 @@ class _BarPageOneState extends State<BarPageOne> {
   ];
 
   static List<String> gender = [
-    "image/gender/woman.svg",
+    "image/gender/females.svg",
     "image/gender/male.svg",
-    "image/gender/woman.svg",
+    "image/gender/females.svg",
     "image/gender/male.svg",
-    "image/gender/woman.svg",
-    "image/gender/woman.svg",
-    "image/gender/woman.svg",
+    "image/gender/females.svg",
+    "image/gender/females.svg",
+    "image/gender/females.svg",
   ];
 
   int count = 5;
@@ -228,8 +229,19 @@ class _BarPageOneState extends State<BarPageOne> {
                       top: ScreenUtil().setHeight(
                         32,
                       ),
-                      child: SvgPicture.asset(
-                        "image/message.svg",
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacement<void, void>(
+                            context,
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context) =>
+                                  const DatailChattingPage(),
+                            ),
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          "image/message.svg",
+                        ),
                       ),
                     ),
                     //로그인여부 아이콘
@@ -307,7 +319,7 @@ class _BarPageOneState extends State<BarPageOne> {
                         27,
                       ),
                       left: ScreenUtil().setWidth(
-                        214,
+                        211,
                       ),
                       child: Images(
                         image: gender[index],

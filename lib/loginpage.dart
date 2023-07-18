@@ -1,11 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_mituks/auth/phoneauth.dart';
 import 'package:flutter_mituks/auth/phoneprofile.dart';
 import 'package:flutter_mituks/bottomnavigation/root_tab.dart';
-import 'package:flutter_mituks/defaultlayout.dart';
-import 'package:flutter_mituks/passwordpage.dart';
-import 'package:flutter_mituks/singup.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -69,20 +65,19 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     builder: (context) {
                       return Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            30,
-                          ),
-                        ),
+                        // decoration: BoxDecoration(
+                        //   borderRadius: BorderRadius.circular(20),
+                        // ),
                         height: ScreenUtil().setHeight(
                           662,
                         ),
                         width: ScreenUtil().setWidth(
                           375,
                         ),
+
                         child: Stack(
                           children: [
-                            Positioned.fill(
+                            Positioned(
                               // bottom: 500,
                               child: BackdropFilter(
                                 filter: ImageFilter.blur(
@@ -90,7 +85,18 @@ class _LoginPageState extends State<LoginPage> {
                                   sigmaY: 5,
                                 ),
                                 child: Container(
-                                  color: Colors.white,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(
+                                      20,
+                                    ),
+                                  ),
+                                  // width: ScreenUtil().setWidth(
+                                  //   375,
+                                  // ),
+                                  // height: ScreenUtil().setHeight(
+                                  //   662,
+                                  // ),
                                 ),
                               ),
                             ),

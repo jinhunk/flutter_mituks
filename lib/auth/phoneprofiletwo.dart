@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_mituks/auth/phoneprofilethree.dart';
 import 'package:flutter_mituks/texttest.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class PhoneProfileTwo extends StatefulWidget {
   const PhoneProfileTwo({super.key});
@@ -490,7 +491,7 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                       hight: ScreenUtil().setHeight(
                         36,
                       ),
-                      image: "image/language/korea.png",
+                      image: "image/seetinglogo/korea.svg",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -2030,10 +2031,10 @@ class ContainerWidgt extends StatelessWidget {
             children: [
               //null 에러날떄
               image != null
-                  ? Image.asset(
+                  ? SvgPicture.asset(
                       image!,
-                      width: 60,
-                      height: 40,
+                      // width: 60,
+                      // height: 40,
                     )
                   : const Text(''),
               const SizedBox(

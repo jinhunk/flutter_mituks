@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mituks/bottomnavigation/root_tab.dart';
 import 'package:flutter_mituks/profile/womanprofile/exchange/exonepage.dart';
 import 'package:flutter_mituks/profile/womanprofile/exchange/extwopage.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ExChangePage extends StatefulWidget {
   const ExChangePage({super.key});
@@ -33,6 +34,7 @@ class _ExChangePageState extends State<ExChangePage>
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             Navigator.push(
@@ -42,9 +44,8 @@ class _ExChangePageState extends State<ExChangePage>
               ),
             );
           },
-          child: const Icon(
-            Icons.arrow_back_ios_sharp,
-            color: Colors.grey,
+          child: SvgPicture.asset(
+            "image/Ic_toucharea.svg",
           ),
         ),
         elevation: 0.0,
@@ -68,14 +69,21 @@ class _ExChangePageState extends State<ExChangePage>
           unselectedLabelColor: Colors.grey,
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorWeight: 2,
-          tabs: const [
+          tabs: [
             Tab(
               child: Text(
                 '환전 신청',
                 style: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: ScreenUtil().setSp(
+                    14,
+                  ),
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: const Color.fromARGB(
+                    255,
+                    34,
+                    34,
+                    34,
+                  ),
                 ),
               ),
             ),
@@ -83,9 +91,16 @@ class _ExChangePageState extends State<ExChangePage>
               child: Text(
                 '환전 내역',
                 style: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: ScreenUtil().setSp(
+                    14,
+                  ),
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: const Color.fromARGB(
+                    255,
+                    34,
+                    34,
+                    34,
+                  ),
                 ),
               ),
             ),

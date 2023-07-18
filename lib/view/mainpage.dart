@@ -42,7 +42,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         title: Padding(
           padding: EdgeInsets.only(
             right: ScreenUtil().setWidth(
-              35,
+              26,
             ),
           ),
           child: Column(
