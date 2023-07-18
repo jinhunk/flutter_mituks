@@ -377,7 +377,7 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '',
+                      title: '한국어',
                       width: ScreenUtil().setHeight(
                         82,
                       ),
@@ -392,7 +392,7 @@ class _FilterPageState extends State<FilterPage> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
-                      image: "image/language/korea.png",
+                      image: "image/seetinglogo/koreaa.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -407,7 +407,7 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '',
+                      title: '일본어',
                       width: ScreenUtil().setHeight(
                         82,
                       ),
@@ -427,7 +427,7 @@ class _FilterPageState extends State<FilterPage> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
-                      image: "image/language/ja.png",
+                      image: "image/seetinglogo/japan.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -442,7 +442,7 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '',
+                      title: '영어',
                       width: ScreenUtil().setHeight(
                         82,
                       ),
@@ -457,7 +457,7 @@ class _FilterPageState extends State<FilterPage> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
-                      image: "image/language/egg.png",
+                      image: "image/seetinglogo/usa.png",
                     ),
                   ],
                 ),
@@ -476,7 +476,7 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '',
+                      title: '불어',
                       width: ScreenUtil().setHeight(
                         82,
                       ),
@@ -491,7 +491,7 @@ class _FilterPageState extends State<FilterPage> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 250, 250, 250),
                       ),
-                      image: "image/language/blu.png",
+                      image: "image/seetinglogo/pari.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -506,7 +506,7 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      title: '',
+                      title: '중국어',
                       width: ScreenUtil().setHeight(
                         82,
                       ),
@@ -526,7 +526,7 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      image: "image/language/china.png",
+                      image: "image/seetinglogo/chain.png",
                     ),
                   ],
                 ),
@@ -578,8 +578,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: '',
-                      image: "image/study.png",
+                      title: '공부',
+                      image: "image/seetinglogo/book.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -613,8 +613,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: '',
-                      image: "image/game.png",
+                      title: '게임',
+                      image: "image/seetinglogo/game.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -648,8 +648,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: "",
-                      image: "image/dog.png",
+                      title: "동물",
+                      image: "image/seetinglogo/dog.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -683,8 +683,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: '',
-                      image: "image/ummsic.png",
+                      title: '음식',
+                      image: "image/seetinglogo/eumsic.png",
                     ),
                   ],
                 ),
@@ -704,7 +704,7 @@ class _FilterPageState extends State<FilterPage> {
                         }
                       },
                       width: ScreenUtil().setHeight(
-                        70,
+                        97,
                       ),
                       hight: ScreenUtil().setHeight(
                         36,
@@ -722,8 +722,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: '',
-                      image: "image/run.png",
+                      title: '문화생활',
+                      image: "image/seetinglogo/chack.png",
                     ),
                     const SizedBox(
                       width: 10,
@@ -755,8 +755,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      image: "image/ansghk.png",
-                      title: '',
+                      image: "image/seetinglogo/heart.png",
+                      title: '운동',
                     ),
                     const SizedBox(
                       width: 10,
@@ -788,8 +788,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: '',
-                      image: "image/Interest/plddd.png",
+                      title: '해외여행',
+                      image: "image/seetinglogo/plaseddd.png",
                     ),
                   ],
                 ),
@@ -1155,8 +1155,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      image: "image/golf.png",
-                      title: '',
+                      image: "image/seetinglogo/goo.png",
+                      title: '골프',
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -1200,8 +1200,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: '',
-                      image: "image/soccer.png",
+                      title: '축구',
+                      image: "image/seetinglogo/soccer.png",
                     ),
                     const SizedBox(
                       width: 10,
@@ -1243,8 +1243,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      image: "image/xpsltm.png",
-                      title: '',
+                      image: "image/ballss.png",
+                      title: '테니스',
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -1288,8 +1288,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      image: "image/runrun.png",
-                      title: '',
+                      image: "image/seetinglogo/runrun.png",
+                      title: '산책',
                     ),
                   ],
                 ),
@@ -1337,8 +1337,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: '',
-                      image: "image/anf.png",
+                      title: '수영',
+                      image: "image/seetinglogo/splee.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -1382,8 +1382,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      image: "image/dyrk.png",
-                      title: '',
+                      image: "image/seetinglogo/dyrktm.png",
+                      title: '요가',
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -1427,8 +1427,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      image: "image/piano.png",
-                      title: '',
+                      image: "image/seetinglogo/piano.png",
+                      title: '피아노',
                     ),
                   ],
                 ),
@@ -1873,7 +1873,9 @@ class ContainerWidgt extends StatelessWidget {
             image != null
                 ? Image.asset(
                     image!,
-                    width: 60,
+                    width: 16,
+                    height: 16,
+                    fit: BoxFit.contain,
                   )
                 : const Text(''),
             const SizedBox(

@@ -603,8 +603,8 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
                       child: Row(
                         children: [
                           PersonContainer(
-                            image: "image/Interest/camara.png",
-                            title: '',
+                            image: "image/seetinglogo/camara.png",
+                            title: '사진찍기',
                             width: ScreenUtil().setWidth(
                               94,
                             ),
@@ -618,8 +618,8 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
                             ),
                           ),
                           PersonContainer(
-                            image: "image/language/korea.png",
-                            title: '',
+                            image: "image/seetinglogo/koreaa.png",
+                            title: '한국어',
                             width: ScreenUtil().setWidth(
                               82,
                             ),
@@ -633,8 +633,8 @@ class _DetailProfilePageState extends State<DetailProfilePage> {
                             ),
                           ),
                           PersonContainer(
-                            image: "image/Interest/momo.png",
-                            title: '',
+                            image: "image/seetinglogo/movic.png",
+                            title: '영화감상',
                             width: ScreenUtil().setWidth(
                               94,
                             ),
@@ -964,19 +964,28 @@ class PersonContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
+        // crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           image != null
               ? Image.asset(
                   image!,
+                  width: 16,
+                  height: 16,
+                  fit: BoxFit.contain,
                 )
               : Text(''),
+          SizedBox(
+            width: ScreenUtil().setWidth(
+              3,
+            ),
+          ),
           Text(
             title,
             style: TextStyle(
-                fontSize: ScreenUtil().setSp(
-                  14,
-                ),
+                // fontSize: ScreenUtil().setSp(
+                //   14,
+                // ),
                 color: const Color.fromARGB(
                   255,
                   23,

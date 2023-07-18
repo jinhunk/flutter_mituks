@@ -234,8 +234,8 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 245, 245, 245),
                       ),
-                      image: 'image/Interest/camara.png',
-                      title: '',
+                      image: 'image/seetinglogo/camara.png',
+                      title: '사진찍기',
                       width: ScreenUtil().setWidth(
                         94,
                       ),
@@ -270,8 +270,8 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 245, 245, 245),
                       ),
-                      title: '',
-                      image: "image/Interest/plddd.png",
+                      title: '여행',
+                      image: "image/seetinglogo/plaseddd.png",
                       width: ScreenUtil().setWidth(
                         94,
                       ),
@@ -293,8 +293,8 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                         }
                         print(interesttwo);
                       },
-                      title: '',
-                      image: "image/Interest/momo.png",
+                      title: '영화감상',
+                      image: "image/seetinglogo/movic.png",
                       width: ScreenUtil().setWidth(
                         94,
                       ),
@@ -346,8 +346,8 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 245, 245, 245),
                       ),
-                      title: '',
-                      image: "image/Interest/mon.png",
+                      title: '영화감상',
+                      image: "image/seetinglogo/chack.png",
                       width: ScreenUtil().setWidth(
                         94,
                       ),
@@ -369,8 +369,8 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                         }
                         print(interestfour);
                       },
-                      title: '',
-                      image: "image/Interest/run.png",
+                      title: '문화생활',
+                      image: "image/seetinglogo/runrun.png",
                       width: ScreenUtil().setWidth(
                         70,
                       ),
@@ -418,8 +418,8 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 245, 245, 245),
                       ),
-                      image: "image/Interest/momo.png",
-                      title: '',
+                      image: "image/seetinglogo/movic.png",
+                      title: '영화감상',
                       width: ScreenUtil().setWidth(
                         94,
                       ),
@@ -484,14 +484,14 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 245, 245, 245),
                       ),
-                      title: '',
+                      title: '한국어',
                       width: ScreenUtil().setWidth(
                         82,
                       ),
                       hight: ScreenUtil().setHeight(
                         36,
                       ),
-                      image: "image/seetinglogo/korea.svg",
+                      image: "image/seetinglogo/koreaa.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -520,14 +520,14 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 245, 245, 245),
                       ),
-                      title: '',
+                      title: '일본어',
                       width: ScreenUtil().setWidth(
                         82,
                       ),
                       hight: ScreenUtil().setHeight(
                         36,
                       ),
-                      image: "image/language/ja.png",
+                      image: "image/seetinglogo/japan.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -556,14 +556,14 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 245, 245, 245),
                       ),
-                      title: '',
+                      title: '영어',
                       width: ScreenUtil().setWidth(
                         70,
                       ),
                       hight: ScreenUtil().setHeight(
                         36,
                       ),
-                      image: "image/language/egg.png",
+                      image: "image/seetinglogo/usa.png",
                     ),
                   ],
                 ),
@@ -596,14 +596,14 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(255, 245, 245, 245),
                       ),
-                      title: '',
+                      title: '불어',
                       width: ScreenUtil().setWidth(
                         70,
                       ),
                       hight: ScreenUtil().setHeight(
                         36,
                       ),
-                      image: "image/language/blu.png",
+                      image: "image/seetinglogo/pari.png",
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -638,8 +638,8 @@ class _PhoneProfileTwoState extends State<PhoneProfileTwo> {
                       hight: ScreenUtil().setHeight(
                         36,
                       ),
-                      title: '',
-                      image: "image/language/china.png",
+                      title: '중국어',
+                      image: "image/seetinglogo/chain.png",
                     ),
                   ],
                 ),
@@ -2031,10 +2031,11 @@ class ContainerWidgt extends StatelessWidget {
             children: [
               //null 에러날떄
               image != null
-                  ? SvgPicture.asset(
+                  ? Image.asset(
                       image!,
-                      // width: 60,
-                      // height: 40,
+                      width: 16,
+                      height: 16,
+                      fit: BoxFit.contain,
                     )
                   : const Text(''),
               const SizedBox(
@@ -2043,7 +2044,7 @@ class ContainerWidgt extends StatelessWidget {
               Center(
                 child: Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.black,
                   ),
                 ),

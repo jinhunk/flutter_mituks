@@ -713,14 +713,14 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
+                          title: '한국어',
                           width: ScreenUtil().setWidth(
                             82,
                           ),
                           hight: ScreenUtil().setHeight(
                             36,
                           ),
-                          image: "image/language/korea.png",
+                          image: "image/seetinglogo/koreaa.png",
                         ),
                         SizedBox(
                           width: ScreenUtil().setWidth(
@@ -734,8 +734,8 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
-                          image: "image/language/blu.png",
+                          title: '불어',
+                          image: "image/seetinglogo/pari.png",
                           width: ScreenUtil().setWidth(
                             70,
                           ),
@@ -755,8 +755,8 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
-                          image: "image/language/egg.png",
+                          title: '영어',
+                          image: "image/seetinglogo/usa.png",
                           width: ScreenUtil().setWidth(
                             70,
                           ),
@@ -797,8 +797,8 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                               250,
                               250,
                             ),
-                            title: '',
-                            image: "image/book.png",
+                            title: '공부',
+                            image: "image/seetinglogo/book.png",
                             width: ScreenUtil().setWidth(
                               70,
                             ),
@@ -819,14 +819,14 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
+                          title: '게임',
                           width: ScreenUtil().setWidth(
                             70,
                           ),
                           hight: ScreenUtil().setHeight(
                             36,
                           ),
-                          image: "image/game.png",
+                          image: "image/seetinglogo/game.png",
                         ),
                         SizedBox(
                           width: ScreenUtil().setWidth(
@@ -840,8 +840,8 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
-                          image: "image/dog.png",
+                          title: '운동',
+                          image: "image/seetinglogo/dog.png",
                           width: ScreenUtil().setWidth(
                             70,
                           ),
@@ -861,14 +861,14 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
+                          title: '음식',
                           width: ScreenUtil().setWidth(
                             70,
                           ),
                           hight: ScreenUtil().setHeight(
                             36,
                           ),
-                          image: "image/ummsic.png",
+                          image: "image/seetinglogo/eumsic.png",
                         ),
                       ],
                     ),
@@ -980,14 +980,14 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
+                          title: '골프',
                           width: ScreenUtil().setWidth(
                             70,
                           ),
                           hight: ScreenUtil().setHeight(
                             36,
                           ),
-                          image: "image/golf.png",
+                          image: "image/seetinglogo/goo.png",
                         ),
                         SizedBox(
                           width: ScreenUtil().setWidth(
@@ -1001,8 +1001,8 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
-                          image: "image/soccer.png",
+                          title: '축구',
+                          image: "image/seetinglogo/soccer.png",
                           width: ScreenUtil().setWidth(
                             70,
                           ),
@@ -1022,8 +1022,8 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
-                          image: "image/xpsltm.png",
+                          title: '테니스',
+                          image: "image/ballss.png",
                           width: ScreenUtil().setWidth(
                             82,
                           ),
@@ -1043,8 +1043,8 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                             250,
                             250,
                           ),
-                          title: '',
-                          image: "image/runrun.png",
+                          title: '산책',
+                          image: "image/seetinglogo/run.png",
                           width: ScreenUtil().setWidth(
                             70,
                           ),
@@ -1184,8 +1184,9 @@ class ContainerWidgt extends StatelessWidget {
             image != null
                 ? Image.asset(
                     image!,
-                    width: 50,
-                    height: 40,
+                    width: 16,
+                    height: 16,
+                    fit: BoxFit.contain,
                   )
                 : const Text(''),
             const SizedBox(

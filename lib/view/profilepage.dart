@@ -503,12 +503,95 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           child: GestureDetector(
                             onTap: () {
-                              //               Navigator.pushReplacement<void, void>(
-                              //   context,
-                              //   MaterialPageRoute<void>(
-                              //     builder: (BuildContext context) => const (),
-                              //   ),
-                              // );
+                              showModalBottomSheet(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                      20.0,
+                                    ),
+                                  ),
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return Container(
+                                      width: ScreenUtil().setWidth(
+                                        375,
+                                      ),
+                                      height: ScreenUtil().setHeight(
+                                        360,
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            left: ScreenUtil().setWidth(
+                                              147,
+                                            ),
+                                            top: ScreenUtil().setHeight(
+                                              50,
+                                            ),
+                                            child: SvgPicture.asset(
+                                              "image/level/crown-goldbig.svg",
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: ScreenUtil().setWidth(
+                                              73,
+                                            ),
+                                            top: ScreenUtil().setHeight(
+                                              140,
+                                            ),
+                                            child: Text(
+                                              '골드 레벨 업! 20다이아 획득,',
+                                              style: TextStyle(
+                                                fontSize: ScreenUtil().setSp(
+                                                  20,
+                                                ),
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: ScreenUtil().setWidth(
+                                              90,
+                                            ),
+                                            top: ScreenUtil().setHeight(
+                                              174,
+                                            ),
+                                            child: Text(
+                                              'Alex님, Lv20으로 레벨업 되었어요.',
+                                              style: TextStyle(
+                                                fontSize: ScreenUtil().setSp(
+                                                  14,
+                                                ),
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: ScreenUtil().setWidth(
+                                              70,
+                                            ),
+                                            top: ScreenUtil().setHeight(
+                                              195,
+                                            ),
+                                            child: Text(
+                                              '레벨이 올라가면 다이아몬드를 선물로 드려요.',
+                                              style: TextStyle(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  64,
+                                                  64,
+                                                  64,
+                                                ),
+                                                fontSize: ScreenUtil().setSp(
+                                                  14,
+                                                ),
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  });
                             },
                             child: SvgPicture.asset(
                               "image/level/bigbronz.svg",
