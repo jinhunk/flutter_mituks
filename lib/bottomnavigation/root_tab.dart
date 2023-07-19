@@ -59,473 +59,472 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
 // 프로필 바텀시트
   void _showModalBottomSheet() {
     showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           20,
         ),
       ),
+      backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
-        return Stack(
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Container(
-              height: ScreenUtil().setHeight(
-                404,
-              ),
-              width: ScreenUtil().setWidth(
-                375,
-              ),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(
-                  sigmaX: 5,
-                  sigmaY: 5,
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(
-                      20,
-                    ),
+            Expanded(
+              child: Container(
+                color: Colors.black.withOpacity(.4),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
+                  child: GestureDetector(
+                    onTap: () => Navigator.pop(context),
                   ),
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: ScreenUtil().setWidth(
-                  20,
-                ),
-                top: ScreenUtil().setHeight(
-                  20,
-                ),
-                right: ScreenUtil().setWidth(
-                  20,
-                ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '수수료 감면 혜택 안내',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: ScreenUtil().setSp(
-                        20,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: ScreenUtil().setWidth(
+                    20,
+                  ),
+                  top: ScreenUtil().setHeight(
+                    20,
+                  ),
+                  right: ScreenUtil().setWidth(
+                    20,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '수수료 감면 혜택 안내',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: ScreenUtil().setSp(
+                          20,
+                        ),
+                        fontWeight: FontWeight.bold,
                       ),
-                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  SizedBox(
-                    height: ScreenUtil().setHeight(
-                      8,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(),
-                    child: Container(
+                    SizedBox(
                       height: ScreenUtil().setHeight(
-                        234,
+                        8,
                       ),
-                      width: ScreenUtil().setWidth(
-                        380,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(
-                          255,
-                          245,
-                          245,
-                          245,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(),
+                      child: Container(
+                        height: ScreenUtil().setHeight(
+                          234,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          16,
+                        width: ScreenUtil().setWidth(
+                          380,
                         ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          top: ScreenUtil().setHeight(
-                            14,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(
+                            255,
+                            245,
+                            245,
+                            245,
                           ),
-                          left: ScreenUtil().setWidth(
+                          borderRadius: BorderRadius.circular(
                             16,
                           ),
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      "image/level/bronz.svg",
-                                    ),
-                                    SizedBox(
-                                      width: ScreenUtil().setWidth(
-                                        8,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: ScreenUtil().setHeight(
+                              14,
+                            ),
+                            left: ScreenUtil().setWidth(
+                              16,
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "image/level/bronz.svg",
+                                      ),
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          8,
+                                        ),
+                                      ),
+                                      Text(
+                                        '브론즈',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      right: ScreenUtil().setWidth(
+                                        20,
                                       ),
                                     ),
-                                    Text(
-                                      '브론즈',
+                                    child: Text(
+                                      '20%',
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold,
                                         fontSize: ScreenUtil().setSp(
                                           14,
                                         ),
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    right: ScreenUtil().setWidth(
-                                      20,
-                                    ),
                                   ),
-                                  child: Text(
-                                    '20%',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(
-                                        14,
-                                      ),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: ScreenUtil().setHeight(
-                                12,
+                                ],
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      "image/level/silver.svg",
-                                    ),
-                                    SizedBox(
-                                      width: ScreenUtil().setWidth(
-                                        8,
-                                      ),
-                                    ),
-                                    Text(
-                                      '실버',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: ScreenUtil().setSp(
-                                          14,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                              SizedBox(
+                                height: ScreenUtil().setHeight(
+                                  12,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    right: ScreenUtil().setWidth(
-                                      20,
-                                    ),
-                                  ),
-                                  child: Text(
-                                    '18%',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(
-                                        14,
-                                      ),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: ScreenUtil().setHeight(
-                                12,
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      "image/level/gold.svg",
-                                    ),
-                                    SizedBox(
-                                      width: ScreenUtil().setWidth(
-                                        8,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "image/level/silver.svg",
+                                      ),
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          8,
+                                        ),
+                                      ),
+                                      Text(
+                                        '실버',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      right: ScreenUtil().setWidth(
+                                        20,
                                       ),
                                     ),
-                                    Text(
-                                      '골드',
+                                    child: Text(
+                                      '18%',
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold,
                                         fontSize: ScreenUtil().setSp(
                                           14,
                                         ),
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    right: ScreenUtil().setWidth(
-                                      20,
-                                    ),
                                   ),
-                                  child: Text(
-                                    '16%',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(
-                                        14,
-                                      ),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: ScreenUtil().setHeight(
-                                12,
+                                ],
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      "image/level/ruby.svg",
-                                    ),
-                                    SizedBox(
-                                      width: ScreenUtil().setWidth(
-                                        8,
-                                      ),
-                                    ),
-                                    Text(
-                                      '루비',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: ScreenUtil().setSp(
-                                          14,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                              SizedBox(
+                                height: ScreenUtil().setHeight(
+                                  12,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    right: ScreenUtil().setWidth(
-                                      20,
-                                    ),
-                                  ),
-                                  child: Text(
-                                    '14%',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(
-                                        14,
-                                      ),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: ScreenUtil().setHeight(
-                                12,
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      "image/level/emerald.svg",
-                                    ),
-                                    SizedBox(
-                                      width: ScreenUtil().setWidth(
-                                        8,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "image/level/gold.svg",
+                                      ),
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          8,
+                                        ),
+                                      ),
+                                      Text(
+                                        '골드',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      right: ScreenUtil().setWidth(
+                                        20,
                                       ),
                                     ),
-                                    Text(
-                                      '에메랄드',
+                                    child: Text(
+                                      '16%',
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold,
                                         fontSize: ScreenUtil().setSp(
                                           14,
                                         ),
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    right: ScreenUtil().setWidth(
-                                      20,
-                                    ),
                                   ),
-                                  child: Text(
-                                    '12%',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(
-                                        14,
-                                      ),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: ScreenUtil().setHeight(
-                                12,
+                                ],
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      "image/level/sapphire.svg",
-                                    ),
-                                    SizedBox(
-                                      width: ScreenUtil().setWidth(
-                                        8,
+                              SizedBox(
+                                height: ScreenUtil().setHeight(
+                                  12,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "image/level/ruby.svg",
+                                      ),
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          8,
+                                        ),
+                                      ),
+                                      Text(
+                                        '루비',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      right: ScreenUtil().setWidth(
+                                        20,
                                       ),
                                     ),
-                                    Text(
-                                      '사파이어',
+                                    child: Text(
+                                      '14%',
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold,
                                         fontSize: ScreenUtil().setSp(
                                           14,
                                         ),
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    right: ScreenUtil().setWidth(
-                                      20,
-                                    ),
                                   ),
-                                  child: Text(
-                                    '10%',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(
-                                        14,
+                                ],
+                              ),
+                              SizedBox(
+                                height: ScreenUtil().setHeight(
+                                  12,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "image/level/emerald.svg",
                                       ),
-                                      fontWeight: FontWeight.bold,
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          8,
+                                        ),
+                                      ),
+                                      Text(
+                                        '에메랄드',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      right: ScreenUtil().setWidth(
+                                        20,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      '12%',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: ScreenUtil().setSp(
+                                          14,
+                                        ),
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: ScreenUtil().setHeight(
+                                  12,
                                 ),
-                              ],
-                            ),
-                          ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "image/level/sapphire.svg",
+                                      ),
+                                      SizedBox(
+                                        width: ScreenUtil().setWidth(
+                                          8,
+                                        ),
+                                      ),
+                                      Text(
+                                        '사파이어',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: ScreenUtil().setSp(
+                                            14,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      right: ScreenUtil().setWidth(
+                                        20,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      '10%',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: ScreenUtil().setSp(
+                                          14,
+                                        ),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: ScreenUtil().setHeight(
-                      20,
+                    SizedBox(
+                      height: ScreenUtil().setHeight(
+                        20,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 0.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: const Color.fromARGB(
-                              255,
-                              245,
-                              245,
-                              245,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 0.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              color: const Color.fromARGB(
+                                255,
+                                245,
+                                245,
+                                245,
+                              ),
                             ),
-                          ),
-                          height: ScreenUtil().setHeight(
-                            56,
-                          ),
-                          width: ScreenUtil().setWidth(
-                            164,
-                          ),
-                          child: Center(
-                            child: Text(
-                              '취소',
-                              style: TextStyle(
-                                color: const Color.fromARGB(
-                                  255,
-                                  82,
-                                  82,
-                                  82,
-                                ),
-                                fontWeight: FontWeight.bold,
-                                fontSize: ScreenUtil().setSp(
-                                  16,
+                            height: ScreenUtil().setHeight(
+                              56,
+                            ),
+                            width: ScreenUtil().setWidth(
+                              164,
+                            ),
+                            child: Center(
+                              child: Text(
+                                '취소',
+                                style: TextStyle(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    82,
+                                    82,
+                                    82,
+                                  ),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: ScreenUtil().setSp(
+                                    16,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: ScreenUtil().setWidth(
-                            5,
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              5,
+                            ),
                           ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: const Color.fromARGB(255, 3, 201, 195),
-                          ),
-                          height: ScreenUtil().setHeight(
-                            56,
-                          ),
-                          width: ScreenUtil().setWidth(
-                            164,
-                          ),
-                          child: Center(
-                            child: Text(
-                              '확인',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: ScreenUtil().setSp(
-                                  16,
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              color: const Color.fromARGB(255, 3, 201, 195),
+                            ),
+                            height: ScreenUtil().setHeight(
+                              56,
+                            ),
+                            width: ScreenUtil().setWidth(
+                              164,
+                            ),
+                            child: Center(
+                              child: Text(
+                                '확인',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: ScreenUtil().setSp(
+                                    16,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 100,),
+                  ],
+                ),
               ),
-            ),
+            )
           ],
         );
       },
