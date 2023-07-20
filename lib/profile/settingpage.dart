@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mituks/bottomnavigation/root_tab.dart';
 import 'package:flutter_mituks/profile/womanprofile/coinsettingpage.dart';
 import 'package:flutter_mituks/view/profilepage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -68,7 +69,7 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => const ProfilePage(),
+                builder: (BuildContext context) => const RootTab(),
               ),
             );
           },
@@ -332,7 +333,7 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                               child: Text(
                                 _woman,
                                 style: TextStyle(
-                                  color: const Color.fromARGB(
+                                  color: Color.fromARGB(
                                     255,
                                     82,
                                     82,
@@ -383,7 +384,7 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
                     ),
                     const DescriptionContainer(
                       title: "생년월일",
-                      titledescription: "19920-04-06",
+                      titledescription: "1992-04-06",
                     ),
                     SizedBox(
                       height: ScreenUtil().setHeight(
@@ -1173,33 +1174,46 @@ class ContainerWidgt extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
-              20,
+              100,
             ),
             color: color,
             border: decoration),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            //null 에러날떄
-            image != null
-                ? Image.asset(
-                    image!,
-                    width: 16,
-                    height: 16,
-                    fit: BoxFit.contain,
-                  )
-                : const Text(''),
-            const SizedBox(
-              width: 5,
-            ),
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.black,
+        child: Padding(
+          padding: EdgeInsets.only(left: ScreenUtil().setWidth(11.0)),
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              //null 에러날떄
+              image != null
+                  ? Padding(
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(
+                          2,
+                        ),
+                      ),
+                      child: Image.asset(
+                        image!,
+                        width: 16,
+                        height: 16,
+                        fit: BoxFit.contain,
+                      ),
+                    )
+                  : const Text(''),
+              const SizedBox(
+                width: 5,
               ),
-              textAlign: TextAlign.center,
-            ),
-          ],
+              Center(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

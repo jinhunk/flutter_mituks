@@ -1,6 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_mituks/model/product.card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'phoneprofiletwo.dart';
@@ -13,6 +14,10 @@ class PhoneProfile extends StatefulWidget {
 }
 
 class _PhoneProfileState extends State<PhoneProfile> {
+  TextEditingController _controllername = TextEditingController();
+  // TextEditingController _controlleremail = TextEditingController();
+  // TextEditingController _controllerHeight = TextEditingController();
+
   bool _manbox = false;
   bool _womanbox = false;
 
@@ -49,6 +54,20 @@ class _PhoneProfileState extends State<PhoneProfile> {
   bool _colors = false;
   double value = 0.3;
   Color _color = Colors.white;
+
+  String username = '';
+
+  Future<void> profileauth() async {
+    UserModel models = UserModel();
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+    models.uid = FirebaseAuth.instance.currentUser!.uid; // 현재유저 uid
+    models.name = _controllername.text; //현재유저 이메일
+    await firebaseFirestore
+        .collection("user") //컬렉션
+        .doc(FirebaseAuth.instance.currentUser!.uid) //문서추가
+        .set(models.toMap()); //user 정보들추가
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -176,8 +195,14 @@ class _PhoneProfileState extends State<PhoneProfile> {
                       48,
                     ),
                     child: TextFormField(
+                      onSaved: (value) {
+                        username = value!;
+                      },
+                      onChanged: (value) {
+                        username = value;
+                      },
                       textInputAction: TextInputAction.next,
-                      // controller: _controlleremail,
+                      controller: _controllername,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color.fromARGB(
@@ -227,13 +252,6 @@ class _PhoneProfileState extends State<PhoneProfile> {
                           ),
                         ),
                       ),
-                      onChanged: ((value) {
-                        setState(
-                          () {
-                            // userId = value;
-                          },
-                        );
-                      }),
                     ),
                   ),
 
@@ -781,9 +799,9 @@ class _PhoneProfileState extends State<PhoneProfile> {
 
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement<void, void>(
+                      Navigator.push(
                         context,
-                        MaterialPageRoute<void>(
+                        MaterialPageRoute(
                           builder: (BuildContext context) =>
                               const PhoneProfileTwo(),
                         ),

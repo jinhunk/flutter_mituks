@@ -15,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(Duration(milliseconds: 1500), () {
+    Timer(const Duration(milliseconds: 1500), () {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -28,23 +28,22 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: WillPopScope(
-      onWillPop: () async => false,
-      child: Container(
-        child: Padding(
-          padding: EdgeInsets.only(
-            top: ScreenUtil().setHeight(
-              10,
+      //뒤로가기 버튼 방지
+      body: WillPopScope(
+        onWillPop: () async => false,
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: ScreenUtil().setHeight(
+                160,
+              ),
             ),
-            left: ScreenUtil().setWidth(
-              10,
+            child: SvgPicture.asset(
+              "image/splashscreens.svg",
             ),
-          ),
-          child: SvgPicture.asset(
-            "image/splashscreens.svg",
           ),
         ),
       ),
-    ));
+    );
   }
 }

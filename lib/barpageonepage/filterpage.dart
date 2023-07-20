@@ -737,7 +737,7 @@ class _FilterPageState extends State<FilterPage> {
                         }
                       },
                       width: ScreenUtil().setHeight(
-                        94,
+                        70,
                       ),
                       hight: ScreenUtil().setHeight(
                         36,
@@ -813,6 +813,7 @@ class _FilterPageState extends State<FilterPage> {
                   ),
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ContainerWidgt(
                       title: '학생',
@@ -1117,6 +1118,7 @@ class _FilterPageState extends State<FilterPage> {
                   ),
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ContainerWidgt(
                       onTap: () {
@@ -1203,8 +1205,10 @@ class _FilterPageState extends State<FilterPage> {
                       title: '축구',
                       image: "image/seetinglogo/soccer.png",
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: ScreenUtil().setWidth(
+                        8,
+                      ),
                     ),
                     ContainerWidgt(
                       onTap: () {
@@ -1299,6 +1303,7 @@ class _FilterPageState extends State<FilterPage> {
                   ),
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ContainerWidgt(
                       onTap: () {
@@ -1308,13 +1313,13 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      width: ScreenUtil().setWidth(
+                      width: ScreenUtil().setHeight(
                         70,
                       ),
                       hight: ScreenUtil().setHeight(
                         36,
                       ),
-                      color: hobbyfive
+                      color: hobbyone
                           ? const Color.fromARGB(
                               255,
                               230,
@@ -1328,7 +1333,7 @@ class _FilterPageState extends State<FilterPage> {
                               250,
                             ),
                       decoration: Border.all(
-                        color: hobbyfive
+                        color: hobbyone
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(
                                 255,
@@ -1337,8 +1342,8 @@ class _FilterPageState extends State<FilterPage> {
                                 250,
                               ),
                       ),
-                      title: '수영',
                       image: "image/seetinglogo/splee.png",
+                      title: '수영',
                     ),
                     SizedBox(
                       width: ScreenUtil().setWidth(
@@ -1353,13 +1358,13 @@ class _FilterPageState extends State<FilterPage> {
                           _subtractCounter();
                         }
                       },
-                      width: ScreenUtil().setWidth(
+                      width: ScreenUtil().setHeight(
                         70,
                       ),
                       hight: ScreenUtil().setHeight(
                         36,
                       ),
-                      color: hobbysix
+                      color: hobbyone
                           ? const Color.fromARGB(
                               255,
                               230,
@@ -1373,7 +1378,7 @@ class _FilterPageState extends State<FilterPage> {
                               250,
                             ),
                       decoration: Border.all(
-                        color: hobbysix
+                        color: hobbyone
                             ? const Color.fromARGB(255, 3, 201, 195)
                             : const Color.fromARGB(
                                 255,
@@ -1841,6 +1846,7 @@ class ContainerWidgt extends StatelessWidget {
   final VoidCallback? onTap;
   final Color? color;
   final Border? decoration;
+  final Widget? padding;
 
   const ContainerWidgt({
     super.key,
@@ -1851,6 +1857,7 @@ class ContainerWidgt extends StatelessWidget {
     this.color,
     this.decoration,
     this.hight,
+    this.padding,
   });
 
   @override
@@ -1861,36 +1868,77 @@ class ContainerWidgt extends StatelessWidget {
         height: hight,
         width: width,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              100,
+          borderRadius: BorderRadius.circular(
+            100,
+          ),
+          color: color,
+          border: decoration,
+        ),
+        child: Padding(
+          padding: EdgeInsets.only(
+            right: ScreenUtil().setWidth(
+              5.0,
             ),
-            color: color,
-            border: decoration),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            //null 에러날떄
-            image != null
-                ? Image.asset(
-                    image!,
-                    width: 16,
-                    height: 16,
-                    fit: BoxFit.contain,
-                  )
-                : const Text(''),
-            const SizedBox(
-              width: 5,
-            ),
-            Text(
-              title,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: ScreenUtil().setSp(
-                  14,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //null 에러날떄
+              image != null
+                  ? Padding(
+                      padding: EdgeInsets.only(left: ScreenUtil().setWidth(4)),
+                      child: Image.asset(
+                        image!,
+                        width: 16,
+                        height: 16,
+                        fit: BoxFit.contain,
+                      ),
+                    )
+                  : const Text(''),
+              const SizedBox(
+                width: 5,
+              ),
+              Padding(
+                padding: EdgeInsets.zero,
+                child: Center(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: ScreenUtil().setSp(
+                        14,
+                      ),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ContainerWidgts extends StatelessWidget {
+  final double width;
+  final double? hight;
+  const ContainerWidgts({
+    super.key,
+    required this.width,
+    this.hight,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: hight,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(
+          100,
         ),
       ),
     );

@@ -44,6 +44,10 @@ dependencies:
   flutter_svg: ^2.0.7
   flutter_screenutil: ^5.8.4
   flutter_native_splash: ^2.3.1
+  firebase_core: ^2.15.0 #Firebase.initializeApp() 호출할수있음
+  firebase_auth: ^4.7.1
+  firebase_storage: ^11.2.5
+  cloud_firestore: ^4.8.3 #파이어베이스와 연동해주는 패키지
 flutter_native_splash:
     color: "#ffffff"
     image: assets/splash.png

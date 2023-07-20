@@ -208,15 +208,18 @@ class _ExOnePageState extends State<ExOnePage> {
                                 ),
                               ),
                               child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    '받는사람',
-                                    style: TextStyle(
-                                      color: Color.fromARGB(
-                                        255,
-                                        115,
-                                        115,
-                                        115,
+                                  const Center(
+                                    child: Text(
+                                      '받는사람',
+                                      style: TextStyle(
+                                        color: Color.fromARGB(
+                                          255,
+                                          115,
+                                          115,
+                                          115,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -225,14 +228,21 @@ class _ExOnePageState extends State<ExOnePage> {
                                       12,
                                     ),
                                   ),
-                                  const Text(
-                                    '| ',
-                                    style: TextStyle(
-                                      color: Color.fromARGB(
-                                        255,
-                                        217,
-                                        217,
-                                        217,
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      top: ScreenUtil().setHeight(
+                                        7,
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      '| ',
+                                      style: TextStyle(
+                                        color: Color.fromARGB(
+                                          255,
+                                          217,
+                                          217,
+                                          217,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -258,7 +268,9 @@ class _ExOnePageState extends State<ExOnePage> {
                                           ),
                                         ),
                                         border: InputBorder.none,
-                                        contentPadding: EdgeInsets.zero,
+                                        contentPadding: EdgeInsets.only(
+                                          bottom: ScreenUtil().setHeight(14),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -297,15 +309,18 @@ class _ExOnePageState extends State<ExOnePage> {
                                 ),
                               ),
                               child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    '메일제목',
-                                    style: TextStyle(
-                                      color: Color.fromARGB(
-                                        255,
-                                        115,
-                                        115,
-                                        115,
+                                  const Center(
+                                    child: Text(
+                                      '메일제목',
+                                      style: TextStyle(
+                                        color: Color.fromARGB(
+                                          255,
+                                          115,
+                                          115,
+                                          115,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -314,14 +329,21 @@ class _ExOnePageState extends State<ExOnePage> {
                                       12,
                                     ),
                                   ),
-                                  const Text(
-                                    '| ',
-                                    style: TextStyle(
-                                      color: Color.fromARGB(
-                                        255,
-                                        217,
-                                        217,
-                                        217,
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      top: ScreenUtil().setHeight(
+                                        7,
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      '| ',
+                                      style: TextStyle(
+                                        color: Color.fromARGB(
+                                          255,
+                                          217,
+                                          217,
+                                          217,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -347,7 +369,9 @@ class _ExOnePageState extends State<ExOnePage> {
                                           ),
                                         ),
                                         border: InputBorder.none,
-                                        contentPadding: EdgeInsets.zero,
+                                        contentPadding: EdgeInsets.only(
+                                          bottom: ScreenUtil().setHeight(14),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -498,7 +522,7 @@ class _ExOnePageState extends State<ExOnePage> {
                     ),
                   ),
                   const Text(
-                    "최소 10,000코인 이상 환전이 가능해요.",
+                    "최소 10,000코인 이상 환전이 가능해요!",
                     style: TextStyle(
                       color: Color.fromARGB(
                         255,
@@ -663,6 +687,7 @@ class _ExOnePageState extends State<ExOnePage> {
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         '수수료 포함 차감되길 Coin',
@@ -674,17 +699,24 @@ class _ExOnePageState extends State<ExOnePage> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: ScreenUtil().setWidth(
-                          150,
+                      // SizedBox(
+                      //   width: ScreenUtil().setWidth(
+                      //     150,
+                      //   ),
+                      // ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          right: ScreenUtil().setWidth(
+                            20,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '0 Coin',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(
-                            13,
+                        child: Text(
+                          '0 Coin',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: ScreenUtil().setSp(
+                              13,
+                            ),
                           ),
                         ),
                       ),
@@ -972,8 +1004,13 @@ class _ExOnePageState extends State<ExOnePage> {
                                               sigmaY: 5,
                                             ),
                                             child: Container(
-                                              color:
-                                                  Colors.white.withOpacity(0.1),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                  20,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           SingleChildScrollView(
@@ -2313,7 +2350,7 @@ class _ExOnePageState extends State<ExOnePage> {
                             child: Row(
                               children: [
                                 Text(
-                                  '351-1234-1234-34,',
+                                  '351-1234-1234-34',
                                   style: TextStyle(
                                     fontSize: ScreenUtil().setSp(
                                       14,
@@ -2390,28 +2427,28 @@ class _ExOnePageState extends State<ExOnePage> {
                                   8,
                                 ),
                               ),
-                              Notice(
+                              const Notice(
                                 title: "현금 지급 신청은 늘 가능합니다.",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5.0,
                               ),
-                              Notice(
+                              const Notice(
                                 title: "현금 지급 수수료는 레벨등급에 따라 차등 적용됩니다.",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5.0,
                               ),
-                              Notice(
+                              const Notice(
                                 title:
                                     "현금 지급 신청 후 공요일을 제외한\n일주일 내내 입금 처리 됩니다..",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5.0,
                               ),
-                              Notice(
+                              const Notice(
                                 title:
-                                    "환전 금액이 5만원 이상 초과될 시에는,3.3%사업소득세\n원천징수 후 입금 처리됩니다.",
+                                    "환전 금액이 5만원 이상 초과될 시에는, 3.3%사업소득세\n원천징수 후 입금 처리됩니다.",
                               ),
                             ],
                           ),

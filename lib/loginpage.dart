@@ -19,484 +19,431 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: EdgeInsets.only(
-          top: ScreenUtil().setHeight(
-            176.1,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        // resizeToAvoidBottomInset: false,
+        body: Padding(
+          padding: EdgeInsets.only(
+            top: ScreenUtil().setHeight(
+              176.1,
+            ),
           ),
-        ),
-        child: Center(
-          child: Column(
-            children: [
-              SvgPicture.asset(
-                "image/loginlogo/logintop.svg",
-              ),
-              SizedBox(
-                height: ScreenUtil().setHeight(
-                  16.03,
+          child: Center(
+            child: Column(
+              children: [
+                SvgPicture.asset(
+                  "image/loginlogo/logintop.svg",
                 ),
-              ),
-              SvgPicture.asset(
-                "image/loginlogo/METALK.svg",
-              ),
-              SizedBox(
-                height: ScreenUtil().setHeight(
-                  86,
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    16.03,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => RootTab(),
-                    ),
-                  );
-                  //1~7일차 출석체크 모델
-                  showModalBottomSheet(
-                    isScrollControlled: true,
-                    context: context,
-                    backgroundColor: Colors.transparent,
-                    builder: (context) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              color: Colors.black.withOpacity(.6),
-                              child: BackdropFilter(
-                                filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
-                                child: GestureDetector(
-                                  onTap: () => Navigator.pop(context),
+                SvgPicture.asset(
+                  "image/loginlogo/METALK.svg",
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    86,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => const RootTab(),
+                      ),
+                    );
+                    //1~7일차 출석체크 모델
+                    showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                color: Colors.black.withOpacity(.6),
+                                child: BackdropFilter(
+                                  filter: ImageFilter.blur(
+                                    sigmaX: 7.0,
+                                    sigmaY: 7.0,
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () => Navigator.pop(context),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Container(
-                            height: ScreenUtil().setHeight(
-                              662,
-                            ),
-                            width: ScreenUtil().setWidth(
-                              375,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Stack(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    // left: 20.0,
-                                    top: ScreenUtil().setHeight(
-                                      20,
+                            Container(
+                              height: ScreenUtil().setHeight(
+                                662,
+                              ),
+                              width: ScreenUtil().setWidth(
+                                375,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      // left: 20.0,
+                                      top: ScreenUtil().setHeight(
+                                        20,
+                                      ),
                                     ),
-                                  ),
-                                  child: Column(
-                                    // mainAxisAlignment: MainAxisAlignment.center,
-                                    // crossAxisAlignment: CrossAxisAlignment.center,
-                                    // mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(
-                                        '출석체크',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: ScreenUtil().setSp(
-                                            20,
-                                          ),
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: ScreenUtil().setHeight(
-                                          4,
-                                        ),
-                                      ),
-                                      Text(
-                                        '7일 연속 출석 시 500C 지급',
-                                        style: TextStyle(
-                                          fontSize: ScreenUtil().setSp(
-                                            14,
+                                    child: Column(
+                                      // mainAxisAlignment: MainAxisAlignment.center,
+                                      // crossAxisAlignment: CrossAxisAlignment.center,
+                                      // mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          '출석체크',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: ScreenUtil().setSp(
+                                              20,
+                                            ),
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: ScreenUtil().setHeight(
-                                          12,
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        children: [
-                                          CouponContanier(
-                                            width: ScreenUtil().setWidth(
-                                              98,
-                                            ),
-                                            height: ScreenUtil().setHeight(
-                                              98,
-                                            ),
-                                            title: '1일차',
-                                            description: "100c",
-                                            style: TextStyle(
-                                              color: const Color.fromARGB(
-                                                255,
-                                                2,
-                                                161,
-                                                156,
-                                              ),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: ScreenUtil().setSp(
-                                                14,
-                                              ),
-                                            ),
-                                            image: "image/coincoin.svg",
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          CouponContanier(
-                                            style: TextStyle(
-                                              color: const Color.fromARGB(
-                                                255,
-                                                2,
-                                                161,
-                                                156,
-                                              ),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: ScreenUtil().setSp(
-                                                14,
-                                              ),
-                                            ),
-                                            width: ScreenUtil().setWidth(
-                                              98,
-                                            ),
-                                            height: ScreenUtil().setHeight(
-                                              98,
-                                            ),
-                                            image: "image/coincoin.svg",
-                                            title: '2일차',
-                                            description: "100c",
-                                          ),
-                                          SizedBox(
-                                            width: ScreenUtil().setWidth(
-                                              12,
-                                            ),
-                                          ),
-                                          CouponContanier(
-                                            style: TextStyle(
-                                              color: const Color.fromARGB(
-                                                255,
-                                                2,
-                                                161,
-                                                156,
-                                              ),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: ScreenUtil().setSp(
-                                                14,
-                                              ),
-                                            ),
-                                            width: ScreenUtil().setWidth(
-                                              98,
-                                            ),
-                                            height: ScreenUtil().setHeight(
-                                              98,
-                                            ),
-                                            image: "image/coincoin.svg",
-                                            title: '3일차',
-                                            description: "100c",
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: ScreenUtil().setHeight(
-                                          12,
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          CouponContanier(
-                                            style: TextStyle(
-                                              color: const Color.fromARGB(
-                                                255,
-                                                2,
-                                                161,
-                                                156,
-                                              ),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: ScreenUtil().setSp(
-                                                14,
-                                              ),
-                                            ),
-                                            width: ScreenUtil().setWidth(
-                                              98,
-                                            ),
-                                            height: ScreenUtil().setHeight(
-                                              98,
-                                            ),
-                                            image: "image/coincoin.svg",
-                                            title: '4일차',
-                                            description: "100c",
-                                          ),
-                                          SizedBox(
-                                            width: ScreenUtil().setWidth(
-                                              12,
-                                            ),
-                                          ),
-                                          CouponContanier(
-                                            style: TextStyle(
-                                              color: const Color.fromARGB(
-                                                255,
-                                                2,
-                                                161,
-                                                156,
-                                              ),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: ScreenUtil().setSp(
-                                                14,
-                                              ),
-                                            ),
-                                            width: ScreenUtil().setWidth(
-                                              98,
-                                            ),
-                                            height: ScreenUtil().setHeight(
-                                              98,
-                                            ),
-                                            image: "image/coincoin.svg",
-                                            title: '5일차',
-                                            description: "100c",
-                                          ),
-                                          SizedBox(
-                                            width: ScreenUtil().setWidth(
-                                              12,
-                                            ),
-                                          ),
-                                          CouponContanier(
-                                            style: TextStyle(
-                                              color: const Color.fromARGB(
-                                                255,
-                                                2,
-                                                161,
-                                                156,
-                                              ),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: ScreenUtil().setSp(
-                                                14,
-                                              ),
-                                            ),
-                                            width: ScreenUtil().setWidth(
-                                              98,
-                                            ),
-                                            height: ScreenUtil().setHeight(
-                                              98,
-                                            ),
-                                            title: '6일차',
-                                            image: "image/coincoin.svg",
-                                            description: "100c",
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: ScreenUtil().setHeight(
-                                          12,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 28),
-                                        child: Image.asset(
-                                          "image/iconbuttonseven-4x.png",
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: ScreenUtil().setHeight(
-                                          130,
-                                        ),
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          // Navigator.pushReplacement<void, void>(
-                                          //   context,
-                                          //   MaterialPageRoute<void>(
-                                          //     builder: (BuildContext context) =>
-                                          //         const PhoneAuth(),
-                                          //   ),
-                                          // );
-                                        },
-                                        child: Container(
+                                        SizedBox(
                                           height: ScreenUtil().setHeight(
-                                            56,
+                                            4,
                                           ),
-                                          width: ScreenUtil().setWidth(
-                                            335,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(
-                                              15,
-                                            ),
-                                            color: const Color.fromARGB(
-                                              255,
-                                              3,
-                                              201,
-                                              195,
+                                        ),
+                                        Text(
+                                          '7일 연속 출석 시 500C 지급',
+                                          style: TextStyle(
+                                            fontSize: ScreenUtil().setSp(
+                                              14,
                                             ),
                                           ),
-                                          child: Center(
-                                            child: Text(
-                                              '확인',
+                                        ),
+                                        SizedBox(
+                                          height: ScreenUtil().setHeight(
+                                            12,
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            CouponContanier(
+                                              width: ScreenUtil().setWidth(
+                                                98,
+                                              ),
+                                              height: ScreenUtil().setHeight(
+                                                98,
+                                              ),
+                                              title: '1일차',
+                                              description: "100c",
                                               style: TextStyle(
-                                                fontSize: ScreenUtil().setSp(
-                                                  16,
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  2,
+                                                  161,
+                                                  156,
                                                 ),
                                                 fontWeight: FontWeight.bold,
-                                                color: Colors.white,
+                                                fontSize: ScreenUtil().setSp(
+                                                  14,
+                                                ),
+                                              ),
+                                              image: "image/coincoin.svg",
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            CouponContanier(
+                                              style: TextStyle(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  2,
+                                                  161,
+                                                  156,
+                                                ),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: ScreenUtil().setSp(
+                                                  14,
+                                                ),
+                                              ),
+                                              width: ScreenUtil().setWidth(
+                                                98,
+                                              ),
+                                              height: ScreenUtil().setHeight(
+                                                98,
+                                              ),
+                                              image: "image/coincoin.svg",
+                                              title: '2일차',
+                                              description: "100c",
+                                            ),
+                                            SizedBox(
+                                              width: ScreenUtil().setWidth(
+                                                12,
+                                              ),
+                                            ),
+                                            CouponContanier(
+                                              style: TextStyle(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  2,
+                                                  161,
+                                                  156,
+                                                ),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: ScreenUtil().setSp(
+                                                  14,
+                                                ),
+                                              ),
+                                              width: ScreenUtil().setWidth(
+                                                98,
+                                              ),
+                                              height: ScreenUtil().setHeight(
+                                                98,
+                                              ),
+                                              image: "image/coincoin.svg",
+                                              title: '3일차',
+                                              description: "100c",
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: ScreenUtil().setHeight(
+                                            12,
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            CouponContanier(
+                                              style: TextStyle(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  2,
+                                                  161,
+                                                  156,
+                                                ),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: ScreenUtil().setSp(
+                                                  14,
+                                                ),
+                                              ),
+                                              width: ScreenUtil().setWidth(
+                                                98,
+                                              ),
+                                              height: ScreenUtil().setHeight(
+                                                98,
+                                              ),
+                                              image: "image/coincoin.svg",
+                                              title: '4일차',
+                                              description: "100c",
+                                            ),
+                                            SizedBox(
+                                              width: ScreenUtil().setWidth(
+                                                12,
+                                              ),
+                                            ),
+                                            CouponContanier(
+                                              style: TextStyle(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  2,
+                                                  161,
+                                                  156,
+                                                ),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: ScreenUtil().setSp(
+                                                  14,
+                                                ),
+                                              ),
+                                              width: ScreenUtil().setWidth(
+                                                98,
+                                              ),
+                                              height: ScreenUtil().setHeight(
+                                                98,
+                                              ),
+                                              image: "image/coincoin.svg",
+                                              title: '5일차',
+                                              description: "100c",
+                                            ),
+                                            SizedBox(
+                                              width: ScreenUtil().setWidth(
+                                                12,
+                                              ),
+                                            ),
+                                            CouponContanier(
+                                              style: TextStyle(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  2,
+                                                  161,
+                                                  156,
+                                                ),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: ScreenUtil().setSp(
+                                                  14,
+                                                ),
+                                              ),
+                                              width: ScreenUtil().setWidth(
+                                                98,
+                                              ),
+                                              height: ScreenUtil().setHeight(
+                                                98,
+                                              ),
+                                              title: '6일차',
+                                              image: "image/coincoin.svg",
+                                              description: "100c",
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: ScreenUtil().setHeight(
+                                            12,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 28),
+                                          child: Image.asset(
+                                            "image/iconbuttonseven-4x.png",
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: ScreenUtil().setHeight(
+                                            130,
+                                          ),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Container(
+                                            height: ScreenUtil().setHeight(
+                                              56,
+                                            ),
+                                            width: ScreenUtil().setWidth(
+                                              335,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                15,
+                                              ),
+                                              color: const Color.fromARGB(
+                                                255,
+                                                3,
+                                                201,
+                                                195,
+                                              ),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                '확인',
+                                                style: TextStyle(
+                                                  fontSize: ScreenUtil().setSp(
+                                                    16,
+                                                  ),
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(
+                        255,
+                        247,
+                        227,
+                        23,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        12,
+                      ),
+                    ),
+                    height: ScreenUtil().setHeight(
+                      56,
+                    ),
+                    width: ScreenUtil().setWidth(
+                      335,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(
+                          74.5,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            "image/loginlogo/kakao.svg",
+                          ),
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              10,
+                            ),
+                          ),
+                          Text(
+                            '카카오 계정으로 시작하기',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: ScreenUtil().setSp(
+                                16,
+                              ),
                             ),
                           ),
                         ],
-                      );
-                    },
-                  );
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(
-                      255,
-                      247,
-                      227,
-                      23,
+                      ),
                     ),
+                  ),
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    12,
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(
                       12,
                     ),
-                  ),
-                  height: ScreenUtil().setHeight(
-                    56,
-                  ),
-                  width: ScreenUtil().setWidth(
-                    335,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: ScreenUtil().setWidth(
-                        74.5,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset(
-                          "image/loginlogo/kakao.svg",
-                        ),
-                        SizedBox(
-                          width: ScreenUtil().setWidth(
-                            10,
-                          ),
-                        ),
-                        Text(
-                          '카카오 계정으로 시작하기',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: ScreenUtil().setSp(
-                              16,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: ScreenUtil().setHeight(
-                  12,
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(
-                    12,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(
-                        0,
-                        3,
-                      ), // changes position of shadow
-                    ),
-                  ],
-                ),
-                height: ScreenUtil().setHeight(
-                  56,
-                ),
-                width: ScreenUtil().setWidth(
-                  335,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: ScreenUtil().setWidth(
-                      77.5,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        "image/loginlogo/goole.svg",
-                      ),
-                      SizedBox(
-                        width: ScreenUtil().setWidth(
-                          15.5,
-                        ),
-                      ),
-                      Text(
-                        '구글계정으로 시작하기',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: ScreenUtil().setSp(
-                            16,
-                          ),
-                        ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(
+                          0,
+                          3,
+                        ), // changes position of shadow
                       ),
                     ],
                   ),
-                ),
-              ),
-              SizedBox(
-                height: ScreenUtil().setHeight(
-                  12,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement<void, void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const PhoneProfile(),
-                    ),
-                  );
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(
-                      12,
-                    ),
-                  ),
                   height: ScreenUtil().setHeight(
                     56,
                   ),
@@ -506,31 +453,25 @@ class _LoginPageState extends State<LoginPage> {
                   child: Padding(
                     padding: EdgeInsets.only(
                       left: ScreenUtil().setWidth(
-                        87,
+                        77.5,
                       ),
                     ),
                     child: Row(
                       children: [
                         SvgPicture.asset(
-                          "image/loginlogo/apple.svg",
+                          "image/loginlogo/goole.svg",
                         ),
                         SizedBox(
                           width: ScreenUtil().setWidth(
-                            12,
+                            15.5,
                           ),
                         ),
                         Text(
-                          'Apple로 시작하기',
+                          '구글계정으로 시작하기',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: ScreenUtil().setSp(
                               16,
-                            ),
-                            color: const Color.fromARGB(
-                              255,
-                              255,
-                              255,
-                              255,
                             ),
                           ),
                         ),
@@ -538,8 +479,71 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: ScreenUtil().setHeight(
+                    12,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement<void, void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => const PhoneProfile(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(
+                        12,
+                      ),
+                    ),
+                    height: ScreenUtil().setHeight(
+                      56,
+                    ),
+                    width: ScreenUtil().setWidth(
+                      335,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(
+                          87,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            "image/loginlogo/apple.svg",
+                          ),
+                          SizedBox(
+                            width: ScreenUtil().setWidth(
+                              12,
+                            ),
+                          ),
+                          Text(
+                            'Apple로 시작하기',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: ScreenUtil().setSp(
+                                16,
+                              ),
+                              color: const Color.fromARGB(
+                                255,
+                                255,
+                                255,
+                                255,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

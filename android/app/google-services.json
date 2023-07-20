@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "783983307726",
+    "project_id": "fluttermituks",
+    "storage_bucket": "fluttermituks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783983307726:android:4052a4537db59066c0999f",
+        "android_client_info": {
+          "package_name": "com.example.flutter_mituks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783983307726-lq1u0juticnptm09pdh8geddqde2vuch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLp6GXsx2XU1g3XficZWJD3l0sxT641es"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783983307726-lq1u0juticnptm09pdh8geddqde2vuch.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "783983307726-v521frfv55rh2rdojrd227sfseameb6s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterMituks"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

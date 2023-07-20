@@ -27,6 +27,18 @@ class _ExTwoPageState extends State<ExTwoPage> {
       child: Column(
         children: [
           Containermoney(
+            height: ScreenUtil().setHeight(
+              17,
+            ),
+            width: ScreenUtil().setWidth(
+              112,
+            ),
+            moneyheight: ScreenUtil().setWidth(
+              17,
+            ),
+            moneywidth: ScreenUtil().setWidth(
+              140,
+            ),
             title: "590,000C",
             yymmdd: '2023.06.23',
             image: "image/moneyfive.svg",
@@ -43,10 +55,26 @@ class _ExTwoPageState extends State<ExTwoPage> {
             ),
             moneytitle: "환전 완료",
           ),
+          SizedBox(
+            height: ScreenUtil().setHeight(
+              10,
+            ),
+          ),
           Containermoney(
+            //aroow 사이즈
+            height: ScreenUtil().setHeight(
+              17,
+            ),
+            width: ScreenUtil().setWidth(
+              108,
+            ),
+            moneyheight: ScreenUtil().setWidth(17),
+            moneywidth: ScreenUtil().setWidth(
+              137,
+            ),
             title: "118,000C",
             yymmdd: '2023.05.16',
-            image: "image/moneyfive.svg",
+            image: "image/moneymoney.svg",
             decoration: BoxDecoration(
               color: const Color.fromARGB(
                 255,
@@ -60,10 +88,25 @@ class _ExTwoPageState extends State<ExTwoPage> {
             ),
             moneytitle: "환전 대기",
           ),
+          SizedBox(
+            height: ScreenUtil().setHeight(
+              10,
+            ),
+          ),
           Containermoney(
+            height: ScreenUtil().setHeight(
+              17,
+            ),
+            width: ScreenUtil().setWidth(
+              102,
+            ),
+            moneyheight: ScreenUtil().setWidth(17),
+            moneywidth: ScreenUtil().setWidth(
+              131,
+            ),
             title: "59,000C",
             yymmdd: '2023.04.03',
-            image: "image/moneyfive.svg",
+            image: "image/moneymoneys.svg",
             decoration: BoxDecoration(
               color: const Color.fromARGB(
                 255,
@@ -84,10 +127,15 @@ class _ExTwoPageState extends State<ExTwoPage> {
 }
 
 class Containermoney extends StatelessWidget {
+  final double? width;
+  final double? height;
+  final double? moneywidth;
+  final double? moneyheight;
   final String title;
   final String yymmdd;
   final String image;
   final String moneytitle;
+
   final Decoration decoration;
   const Containermoney({
     super.key,
@@ -96,12 +144,18 @@ class Containermoney extends StatelessWidget {
     required this.image,
     required this.moneytitle,
     required this.decoration,
+    this.width,
+    this.height,
+    this.moneywidth,
+    this.moneyheight,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(82),
+      height: ScreenUtil().setHeight(
+        82,
+      ),
       width: ScreenUtil().setWidth(
         335,
       ),
@@ -127,6 +181,7 @@ class Containermoney extends StatelessWidget {
             ),
             child: Text(
               title,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: const Color.fromARGB(
                   255,
@@ -141,18 +196,9 @@ class Containermoney extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            width: ScreenUtil().setWidth(
-              7,
-            ),
-          ),
           Positioned(
-            left: ScreenUtil().setWidth(
-              111,
-            ),
-            top: ScreenUtil().setHeight(
-              18,
-            ),
+            left: width,
+            top: height,
             child: SvgPicture.asset(
               "image/arroww.svg",
             ),
@@ -169,12 +215,8 @@ class Containermoney extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: ScreenUtil().setWidth(
-              142,
-            ),
-            top: ScreenUtil().setHeight(
-              18,
-            ),
+            left: moneywidth,
+            top: moneyheight,
             child: SvgPicture.asset(
               image,
             ),

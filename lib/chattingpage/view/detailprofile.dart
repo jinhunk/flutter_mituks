@@ -963,38 +963,52 @@ class PersonContainer extends StatelessWidget {
         color: const Color.fromARGB(255, 243, 240, 240),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Row(
-        // crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          image != null
-              ? Image.asset(
-                  image!,
-                  width: 16,
-                  height: 16,
-                  fit: BoxFit.contain,
-                )
-              : Text(''),
-          SizedBox(
-            width: ScreenUtil().setWidth(
-              3,
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: ScreenUtil().setWidth(
+            11.5,
+          ),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            image != null
+                ? Padding(
+                    padding: EdgeInsets.only(
+                      left: ScreenUtil().setWidth(2.5),
+                    ),
+                    child: Image.asset(
+                      image!,
+                      width: 16,
+                      height: 16,
+                      fit: BoxFit.contain,
+                    ),
+                  )
+                : Text(''),
+            SizedBox(
+              width: ScreenUtil().setWidth(
+                3,
+              ),
             ),
-          ),
-          Text(
-            title,
-            style: TextStyle(
-                // fontSize: ScreenUtil().setSp(
-                //   14,
-                // ),
-                color: const Color.fromARGB(
-                  255,
-                  23,
-                  23,
-                  23,
-                ),
-                fontWeight: FontWeight.w700),
-          ),
-        ],
+            Center(
+              child: Text(
+                title,
+                style: TextStyle(
+                    // fontSize: ScreenUtil().setSp(
+                    //   14,
+                    // ),
+                    color: const Color.fromARGB(
+                      255,
+                      23,
+                      23,
+                      23,
+                    ),
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

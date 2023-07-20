@@ -1,10 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mituks/bottomnavigation/root_tab.dart';
 import 'package:flutter_mituks/loginpage.dart';
+
 import 'package:flutter_mituks/splash.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
+  //파이어베이스 초기화
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+  //스플래시스크린
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
@@ -27,8 +35,16 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
+          builder: (context, child) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaleFactor: 1,
+              ),
+              child: child!,
+            );
+          },
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'mituks',
           theme: ThemeData(
             // This is the theme of your application.
             //
@@ -41,7 +57,18 @@ class MyApp extends StatelessWidget {
             // is not restarted.
             primarySwatch: Colors.blue,
           ),
+
           home: const SplashScreen(),
+          // home: StreamBuilder(
+          //   builder: (context, snapshot) {
+          //     if (snapshot.hasData) {
+          //       return const RootTab();
+          //     } else {
+          //       return const LoginPage();
+          //     }
+          //   },
+          //   stream: FirebaseAuth.instance.authStateChanges(),
+          // ),
         );
       },
     );
